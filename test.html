@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <title></title> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <meta name="keywords" content="" /> 
+  <meta name="description" content="" /> 
+  <meta name="generator" content="ShopEx 4.8.5" /> 
+  <link rel="icon" href="favicon.ico" type="image/x-icon" /> 
+  <link rel="bookmark" href="favicon.ico" type="image/x-icon" /> 
+  <link rel="stylesheet" href="statics/style.css" type="text/css" /> 
+  <script type="text/javascript">
+var Shop = {"set":{"path":"\/","buytarget":"1","dragcart":false,"refer_timeout":15},"url":{"addcart":"http:\/\/www.13335926308.com\/?cart-ajaxadd.html","shipping":"http:\/\/www.13335926308.com\/?cart-shipping.html","payment":"http:\/\/www.13335926308.com\/?cart-payment.html","total":"http:\/\/www.13335926308.com\/?cart-total.html","viewcart":"http:\/\/www.13335926308.com\/?cart-view.html","ordertotal":"http:\/\/www.13335926308.com\/?cart-total.html","applycoupon":"http:\/\/www.13335926308.com\/?cart-applycoupon.html","diff":"http:\/\/www.13335926308.com\/?product-diff.html"}};
+</script> 
+  <script type="text/javascript" src="statics/script/tools.js"></script> 
+  <script type="text/javascript" src="statics/script/goodscupcake.js"></script> 
+  <script type="text/javascript">
+
+window.addEvent('domready',function(){
+			var ReferObj =new Object();
+			$extend(ReferObj,{
+				serverTime:1471084724,
+				init:function(){				
+        			var FIRST_REFER=Cookie.get('S[FIRST_REFER]');
+					var NOW_REFER=Cookie.get('S[NOW_REFER]');				
+					var nowDate=this.time=this.serverTime*1000;						
+					if(!window.location.href.test('#r-')&&!document.referrer||document.referrer.test(document.domain))return;				
+					if(window.location.href.test('#r-'))Cookie.dispose('S[N]');	
+					if(!FIRST_REFER){
+						if(NOW_REFER){
+							this.writeCookie('S[FIRST_REFER]',NOW_REFER,this.getTimeOut(JSON.decode(NOW_REFER).DATE));
+						}else{						
+							this.setRefer('S[FIRST_REFER]',Shop.set.refer_timeout);
+						}
+					}
+					this.setRefer('S[NOW_REFER]',Shop.set.refer_timeout);
+					this.createGUID();
+				},
+				getUid:function(){
+					var lf=window.location.href,pos=lf.indexOf('#r-');
+					return pos!=-1?lf.substr(pos+4):'';	
+				},
+				getRefer:function(){
+					return document.referrer?document.referrer:'';
+				},
+				setRefer:function(referName,timeout){
+					var uid=this.getUid(),referrer=this.getRefer();
+					var data={'ID':uid,'REFER':referrer,'DATE':this.time};
+					if('S[NOW_REFER]'==referName){		
+						var refer=JSON.decode(Cookie.get('S[FIRST_REFER]'));	
+						if(uid!=''&&refer&&refer.ID==''){						
+							var fdata={'ID':uid,'REFER':refer.REFER,'DATE':refer.DATE};
+							this.writeCookie('S[FIRST_REFER]',JSON.encode(fdata),this.getTimeOut(refer.DATE));							
+						}else if(uid==''){					
+							$extend(data,{'ID':refer.ID});
+						}	
+					}	
+					Cookie.set(referName,JSON.encode(data),{duration:(Shop.set.refer_timeout||15)});
+				},				
+				getTimeOut:function(nowDate){			
+				    var timeout=nowDate+Shop.set.refer_timeout*24*3600*1000;
+					var date=new Date(timeout);
+					return date;
+		 		},
+				writeCookie:function(key,value,timeout){
+					document.cookie=key+ '=' + value+'; expires=' + timeout.toGMTString();	
+				},
+				createGUID:function(){
+					var GUID = (function(){
+						var S4=function(){
+							return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+						};
+						return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4()).toUpperCase();
+					})();
+					Cookie.set('S[N]',GUID,{duration:3650});
+				}
+			});
+			ReferObj.init();
+});
+    
+
+  
+</script> 
+  <link rel="stylesheet" type="text/css" href="http://www.13335926308.com/themes/1467903309/images/css.css" /> 
+ </head>
+ <body> 
+  <a name="topt" id="topp"></a> 
+  <div class="topimgbg" id="toubiao"> 
+   <div class="AllWrap topimg" style="text-align:center;"> 
+    <div class="borderpx " id=""> 
+     <div class="AdvBanner"> 
+      <a href="" target="_blank"> <img src="http://www.13335926308.com/themes/1467903309/images/top.jpg" style="" /> </a> 
+     </div> 
+    </div> 
+    <a class="gbimg" style="CURSOR:hand" onclick="toueme()">x</a> 
+   </div> 
+   <script>
+	function toueme(){
+		document.getElementById("toubiao").style.display="none";
+	}
+</script> 
+  </div> 
+  <div class="headerbg"> 
+   <div class="AllWrap headertop"> 
+    <div class="nhzdy fl">
+     <div class="borderpx " id=""> 
+      <div class="AdvBanner">
+        欢迎光临京东商城！ 
+      </div> 
+     </div> 
+    </div> 
+    <ul class="menuu">
+     <li class="sub"><a href="./?member-index.html" style="padding-top:0px;_padding-top:0px; padding-left:6px;text-align:left; color:#666;border-bottom:0; width:63px;">会员中心
+       <comment></comment></a> <ins>
+       <table>
+        <tbody>
+         <tr>
+          <td>
+           <ul style="border:1px solid #ddd; margin-top:-1px; background:#fff;"> 
+            <li><a style="padding:0px 0px 0px 0px;_padding-top:0px; background:url(http://www.13335926308.com/themes/1467903309/images/hou.png) no-repeat 57px 8px;color:#851128;text-align:left; border-bottom:0;padding-left:5px; width:70px;" href="./?member-index.html">会员中心</a></li> 
+            <li><a href="./?member-orders.html">我的订单</a></li> 
+            <li><a href="./?member-favorite.html">我的收藏</a></li> 
+            <li><a href="./?member-pointHistory.html">我的积分</a></li> 
+           </ul></td>
+         </tr>
+        </tbody>
+       </table></ins></li>
+    </ul> 
+    <div id="weixin" class="qianna" onmouseover="this.className='houua'" onmouseout="this.className='qianna'">
+     <span>关注京东</span> 
+     <div class="borderpx " id=""> 
+      <div class="AdvBanner"> 
+       <a href="" target="_blank"> <img src="http://www.13335926308.com/themes/1467903309/images/wx.jpg" style="" /> </a> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="qingtopr"> 
+     <div class="topzdy fr">
+      |
+      <a href="./?message.html">客户留言</a>|
+      <a href="./?page-helpcenter.html">帮助中心</a>|
+     </div> 
+     <div class="gz fr">
+      <div class="borderpx " id=""> 
+       <a href="?">关注的品牌</a>
+      </div> 
+     </div> 
+     <div class="loginbar fr">
+      您好
+      <span id="uname_386"></span>！ 
+      <span id="loginBar_386"> <a href="?passport-login.html">[请登录]</a>&nbsp;&nbsp; <a href="?passport-signup.html">[免费注册]</a> </span> 
+      <script>
+if((null!=Cookie.get('S[NAME]'))||(null!=Cookie.get('S[UNAME]'))){
+    $('uname_386').setText('：'+(Cookie.get('S[NAME]') ? Cookie.get('S[NAME]'):Cookie.get('S[UNAME]')));
+}
+</script> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="AllWrap headerInfo"> 
+   <div class="logo">
+    <a href="./"><img src="http://www.13335926308.com/images/default/20160707/5235b29b71e0d931.png" border="0" /></a>
+   </div> 
+   <div class="searchbar">
+    <form action="?search-result.html" method="post" class="SearchBar"> 
+     <table cellpadding="0" cellspacing="0"> 
+      <tbody>
+       <tr> 
+        <td class="search_label"> <span>关键字：</span> <input name="name[]" size="10" class="inputstyle keywords" value="" x-webkit-speech="" /> </td> 
+        <td><input type="submit" value="搜索" class="btn_search" onfocus="this.blur();" /> </td> 
+        <td><a href="?search-index.html" class="btn_advsearch">高级搜索</a> </td> 
+       </tr> 
+      </tbody>
+     </table> 
+    </form> 
+   </div> 
+   <div class="remen">
+    <div class="borderpx " id=""> 
+     <a href="?"><font color="#cc0000">云南白药</font></a>|
+     <a href="?">coach</a>|
+     <a href="?"><font color="#cc0000">巧克力牛奶</font></a>|
+     <a href="?">男手表</a>|
+     <a href="?"><font color="#cc0000">春夏新装</font></a>|
+     <a href="?">电饭煲</a>|
+     <a href="?"><font color="#cc0000">儿童意面</font></a>|
+     <a href="?">潮流换新</a>
+    </div> 
+   </div> 
+   <div class="cartbar" id="cart">
+    <div class="borderpx " id=""> 
+     <style type="text/css"> .Cart_info{position: relative;display: block;} .Cart_info .fmenu{width: 358px;right: 0;top:0;left:auto;border:1px solid #9D0E0E;background:#fff;} .Cart_info .fmenu .boxGray{background: #fff;border:none;} </style> 
+     <div id="cartpop" class="Cart_info shop-cart-mini"> 
+      <dl> 
+       <dt> 
+        <s></s> 
+        <a href="?cart-index.html" class="cartbox cartfull pay"> <span class="CartIco"> <i class="icon-common icon-common-carthover"></i> 购物车 </span> <span class="shopping"> <b id="Cart_380" class="cart-number">0</b> </span> </a> 
+       </dt> 
+       <!-- <a href="?cart-index.html " target="_blank" class="cart-container"> 去结算 </a> --> 
+      </dl> 
+     </div> 
+     <script>
+
+window.addEvent('domready',function(){
+       var barId ="380";
+       var bar = $('foobar_'+barId);
+
+       var barOptions = {
+           MID:Cookie.get('S[MEMBER]'),
+           uname:Cookie.get('S[UNAME]'),
+           coin:[{"cur_code":"CNY","cur_name":"\u4eba\u6c11\u5e01","cur_sign":"\uffe5","cur_rate":"1.0000","def_cur":"true","disabled":"false"}],
+           curCoin:Cookie.get('S[CUR]'),
+           cartViewURl:'?cart-view.html',
+           stick:false       };
+
+       if(coinBar=$('Cur_sel_'+barId)){             
+           var coinMenu = new Element('dd',{'class':'mini-cart-list','styles':{'display':'none'}}).inject($E('.Cart_info').getElement('dl'));    
+           barOptions.coin.each(function(item){                
+                if(item['cur_code']==barOptions['curCoin']){
+                   coinBar.getElement('strong').set('text',[item.cur_sign,item.cur_name].join(''));
+                }
+                coinMenu.adopt(new Element('div',{'class':'item',text:[item.cur_sign,item.cur_name].join(''),events:{                      
+                      click:function(){
+                          Cookie.set('S[CUR]',item.cur_code);
+                          window.location.href=window.location.href;
+                      }
+                
+                }}));
+…
