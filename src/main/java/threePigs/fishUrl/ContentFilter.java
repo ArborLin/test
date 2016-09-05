@@ -16,17 +16,58 @@ public class ContentFilter {
     public ContentFilter(HtmlParser htmlParser) {
         this.htmlParser = htmlParser;
     }
+
+    /**
+     * 获取页面中空链接数目（为""或"?"）
+     * @return count 空链接数
+     */
     public int getNullLinkCount() {
         int count = 0;
         Elements links = htmlParser.getLinks();
 
         for (Element link: links){
             String linkHref = link.attr("href");
-            if (linkHref.equals("")){
+            if (linkHref.equals("") || linkHref.equals("?")){
                 count++;
             }
         }
         return count;
+    }
+
+    /**
+     * 获取指向静态链接的数目
+     * @return count 静态链接计数
+     */
+    public int getStaticLinkCount() {
+        int count = 0;
+        Elements links = htmlParser.getLinks();
+
+        for (Element link: links) {
+            String linkHref = link.attr("href");
+            if (linkHref.contains(".html")) {
+                System.out.println(linkHref);
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public int getIfBadFormExist() {
+        int exist = 0;
+        Elements forms = htmlParser.getForms();
+
+        for (Element form: forms) {
+            Elements inputField = form.select("input");
+
+            if (inputField.size() == 0) { // form表单中不含input域
+                continue;
+            }
+
+
+
+        }
+
+        return exist;
     }
 
     public static void main(String args[]){
@@ -57,6 +98,7 @@ public class ContentFilter {
             HtmlParser htmlParser = new HtmlParser("http://www.13335926308.com",html);
             ContentFilter filter = new ContentFilter(htmlParser);
             System.out.println(filter.getNullLinkCount());
+            System.out.println(filter.getStaticLinkCount());
         }
     }
 }

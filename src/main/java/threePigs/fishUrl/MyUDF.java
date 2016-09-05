@@ -14,6 +14,5 @@ public class MyUDF extends UDTF {
     public void process(Object[] objects) throws UDFException {
         String url = (String) objects[0];
         String html_content = (String) objects[1];
-
     }
 }

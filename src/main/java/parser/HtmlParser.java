@@ -26,4 +26,8 @@ public class HtmlParser {
     public Elements getImgs() {
         return doc.getElementsByTag("img");
     }
+
+    public Elements getForms() {
+        return doc.select("form");
+    }
 }
