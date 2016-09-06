@@ -10,12 +10,10 @@ import com.aliyun.odps.udf.UDFException;
 /**@author LYH
  * 提取URL的特征
  * */
-public class UrlFeacture extends UDF {
+public class UrlFeacture{
 
-	public int[] process(Object[] objects) throws Exception {
+	public int[] process(String url) throws Exception {
         //String url = (String) objects[0];
-		String html_content = (String) objects[1];
-        String url = "http://www.baicaidz.com";
         URL aUrl = new URL(url);                
         String protocol = aUrl.getProtocol();
         String host = aUrl.getHost();

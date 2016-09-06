@@ -4,9 +4,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import parser.HtmlParser;
 
-import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -36,6 +37,15 @@ public class ContentFilter {
             }
         }
         return count;
+    }
+
+    public Double getNullLinkRatio() {
+        int nullLinkCount = getNullLinkCount();
+        Elements links = htmlParser.getLinks();
+        if (links.size()!=0)
+            return (double) nullLinkCount /(links.size());
+        else
+            return Double.valueOf(0);
     }
 
     /**
@@ -107,6 +117,11 @@ public class ContentFilter {
         return exist;
     }
 
+    /**
+     * 是否存在潜在有害action域
+     * @return
+     * @throws MalformedURLException
+     */
     public int getIfBadActionExist() throws MalformedURLException {
         int exist = 0;
         Elements forms = htmlParser.getForms();
@@ -114,7 +129,6 @@ public class ContentFilter {
         for (Element form: forms) {
             String actionAttr = form.attr("action");
             String[] actionSplit = actionAttr.split("/");
-            URL url = new URL(htmlParser.getUrl());
             if (actionSplit.length <= 1 || !ifSameDomain(htmlParser.getUrl(), actionAttr)){   //为空或单个文件名，或指向与页面不同域
                 exist = 1;
                 return exist;
@@ -122,6 +136,56 @@ public class ContentFilter {
         }
 
         return exist;
+    }
+
+    /**
+     * 获取最频繁Host
+     * @return
+     * @throws Exception
+     */
+    public String getFrequentHost() throws Exception{
+        Elements links = htmlParser.getLinks();
+        String hostFreq = "";
+        Map<String, Integer> hostMap = new HashMap<String, Integer>();
+
+        //统计每个host的次数
+        for (Element link: links){
+
+            String linkHref = link.attr("href");
+            if (!linkHref.contains(":/"))
+                linkHref = htmlParser.getUrl();
+            URL aUrl = new URL(linkHref);
+            String host = aUrl.getHost();
+            Integer count = hostMap.get(host);
+            if(count == null){
+                hostMap.put(host, 1);
+            }else {
+                hostMap.put(host, ++count);
+            }
+        }
+
+        //得到最频繁出现的host
+        for(Map.Entry<String, Integer> entry : hostMap.entrySet()){
+            int max = 0;
+            if(entry.getValue()>max){
+                max = entry.getValue();
+                hostFreq = entry.getKey();
+            }
+        }
+
+        return hostFreq;
+
+    }
+
+
+    public int getFreqUrlMatch() throws Exception {
+        int match = 0;
+        URL pageUrl = new URL(htmlParser.getUrl());
+        String freqHost = getFrequentHost();
+        if (pageUrl.getHost().equals(freqHost))
+            match = 1;
+
+        return match;
     }
 
     /**
@@ -154,39 +218,5 @@ public class ContentFilter {
             flag = true;
         }
         return flag;
-    }
-
-    public static void main(String args[]) throws MalformedURLException {
-        File file = new File("test2.html");
-        InputStreamReader reader = null;
-        StringWriter writer = new StringWriter();
-        try {
-                reader = new InputStreamReader(new FileInputStream(file));
-            //将输入流写入输出流
-            char[] buffer = new char[1024];
-            int n = 0;
-            while (-1 != (n = reader.read(buffer))) {
-                writer.write(buffer, 0, n);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (reader != null)
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-        }
-        //返回转换结果
-        if (writer != null) {
-            String html = writer.toString();
-            HtmlParser htmlParser = new HtmlParser("http://www.13335926308.com",html);
-            ContentFilter filter = new ContentFilter(htmlParser);
-            System.out.println(filter.getNullLinkCount());
-            System.out.println(filter.getStaticLinkCount());
-            System.out.println(filter.getIfBadFormExist());
-            System.out.println(filter.getIfBadActionExist());
-        }
     }
 }
