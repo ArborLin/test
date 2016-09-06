@@ -1,4 +1,4 @@
-package main.java.threePigs.fishUrl;
+package threePigs.fishUrl;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -33,11 +33,11 @@ public class UrlFeacture extends UDF {
     }
 	/**
 	 * @title dealProtocol
-	 * @description 协议为http或https 返回1;否则返回0
+	 * @description 协议为https 返回1;否则返回0
 	 * @return int*/
 	public int dealProtocol(String pro){
 		int flag = 0;
-		if(pro=="http"||pro=="https"){
+		if(pro=="https"){
 			flag = 1;
 		}else{
 			flag = 0;

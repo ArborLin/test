@@ -30,4 +30,8 @@ public class HtmlParser {
     public Elements getForms() {
         return doc.select("form");
     }
+
+    public String getUrl() {
+        return url;
+    }
 }
