@@ -10,7 +10,7 @@ import parser.HtmlParser;
  * @author Arbor vlinyq@gmail.com
  * @version 2016/9/3
  */
-@Resolve({"string,string->bigint,bigint,bigint,bigint,bigint,bigint,double,bigint,bigint,bigint,bigint"})
+@Resolve({"string,string->string,bigint,bigint,bigint,bigint,bigint,bigint,double,bigint,bigint,bigint,bigint"})
 public class MyUDF extends UDTF {
 
     @Override
@@ -28,11 +28,11 @@ public class MyUDF extends UDTF {
             e.printStackTrace();
         }
 
-        /* 特征     协议是否为https    是否包含IP          端口号是否为80        域名级数             数字个数        异常字符数
+        /* 特征     网站URL       协议是否为https       是否包含IP          端口号是否为80        域名级数             数字个数        异常字符数
          *          空链接比例         指向静态html文件链接数                存在潜在有害form         潜在有害action    最频繁域匹配
          */
         try {
-            forward((long)urlFeatureValue[0],(long)urlFeatureValue[1], (long)urlFeatureValue[2], (long)urlFeatureValue[3], (long)urlFeatureValue[4],(long)urlFeatureValue[5],
+            forward(url, (long)urlFeatureValue[0],(long)urlFeatureValue[1], (long)urlFeatureValue[2], (long)urlFeatureValue[3], (long)urlFeatureValue[4],(long)urlFeatureValue[5],
                     filter.getNullLinkRatio(), (long)filter.getStaticLinkCount(), (long)filter.getIfBadFormExist(), (long)filter.getIfBadActionExist(),(long) filter.getFreqUrlMatch());
         } catch (Exception e) {
             e.printStackTrace();

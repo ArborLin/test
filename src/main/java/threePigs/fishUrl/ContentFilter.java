@@ -5,6 +5,8 @@ import org.jsoup.select.Elements;
 import parser.HtmlParser;
 
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -59,7 +61,7 @@ public class ContentFilter {
         for (Element link: links) {
             String linkHref = link.attr("href");
             if (linkHref.contains(".html")) {
-                System.out.println(linkHref);
+//                System.out.println(linkHref);
                 count++;
             }
         }
@@ -152,9 +154,31 @@ public class ContentFilter {
         for (Element link: links){
 
             String linkHref = link.attr("href");
-            if (!linkHref.contains(":/"))
+            linkHref = linkHref.replaceAll("\\s","");
+            URI uri = null;
+            try{
+                uri = new URI(linkHref);
+            } catch (Exception e) {
+                //System.out.println("URI异常");
+                e.printStackTrace();
+                continue;
+            }
+
+            if (uri.getScheme()!=null && !uri.getScheme().equals("http") && !uri.getScheme().equals("https")){ // 忽略非http或https的其他协议，如tecent://
+                continue;
+            }
+            if (uri.getScheme()==null) {
                 linkHref = htmlParser.getUrl();
-            URL aUrl = new URL(linkHref);
+            }
+            URL aUrl = null;
+            try{
+                aUrl = new URL(linkHref);
+            }catch (Exception e) {
+                System.out.println("错误LinkHref "+ linkHref);
+                e.printStackTrace();
+                continue;
+            }
+
             String host = aUrl.getHost();
             Integer count = hostMap.get(host);
             if(count == null){
@@ -165,8 +189,8 @@ public class ContentFilter {
         }
 
         //得到最频繁出现的host
+        int max = 0;
         for(Map.Entry<String, Integer> entry : hostMap.entrySet()){
-            int max = 0;
             if(entry.getValue()>max){
                 max = entry.getValue();
                 hostFreq = entry.getKey();
@@ -198,7 +222,14 @@ public class ContentFilter {
         boolean same = false;
         URL pageUrl = new URL(url);
         if (actionUrl.contains(":/")) {//绝对路径
-            URL actionURL = new URL(actionUrl);
+            URL actionURL = null;
+            try{
+                actionURL = new URL(actionUrl);
+            }catch (MalformedURLException e){
+                //action域格式异常，默认为不同域
+                return false;
+            }
+
             if (actionURL.getHost().equals(pageUrl.getHost()))
                 same = true;
         } else {
@@ -214,9 +245,23 @@ public class ContentFilter {
                 "登录|姓名|电话|手机|地址|住址|卡号|信用|身份证|邮箱|申请|denglu|xingming|dianhua|shouji|dizhi|xinyong|shenfenzheng|youxiang";
         Matcher m = Pattern.compile(keywords).matcher(s);
         if(m.find()){
-            System.out.println(m.group());
+//            System.out.println(m.group());
             flag = true;
         }
         return flag;
+    }
+
+    public static void main(String args[]) {
+        try {
+            String link = "http://baidu.com";
+            link = link.replaceAll("\\s","");
+            URI uri = new URI(link);
+            URL url = new URL(link);
+            System.out.println(uri.getScheme());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
     }
 }
