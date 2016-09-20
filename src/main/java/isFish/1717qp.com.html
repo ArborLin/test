@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>777游戏中心_官方首页</title>
+    <meta name="keywords" content="手机游戏,安卓手游,Android,苹果手游,ios,斗地主,捕鱼,街机"/>
+    <meta name="description" content="一款手机游戏与PC游戏数据互通，棋牌平台第一品牌游戏。"/>
+    <link rel="stylesheet" type="text/css" href="/css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/index.css"/>
+    <script src="/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript"> function mouseover() {
+        $("#backImg").attr("src", "/images/btnback1.png");
+    }
+    function mouseout() {
+        $("#backImg").attr("src", "/images/btnback.png");
+    } </script>
+</head>
+<script type="text/javascript"> $(function () {
+    if ('' != '') {
+        alert('');
+    }
+    setInterval('GameScroll()', 2000);
+    ExChangeImg(3);
+});
+var index = 0;
+function GameScroll() {
+    if (index + 4 > $("#gameList").children().length) {
+        index = 0;
+    }
+    $("#gameList").children().hide();
+    $("#gameList").children().each(function (k, v) {
+        if ((k < index + 4) && k >= index) {
+            $(v).attr("style", "display:inline");
+        } else {
+            $(v).attr("style", "display:none");
+        }
+    });
+    index++;
+}
+function ExChangeImg(imgIndex) {
+    if (imgIndex > 7) {
+        imgIndex = 3;
+    }
+    $("#exchangeImg").attr("src", "/images/adv0" + imgIndex + ".jpg");
+    imgIndex++;
+    setTimeout('ExChangeImg(' + imgIndex + ')', 2000);
+}
+if (1 = 1) {
+} </script>
+<body>
+<div class="fix-header">
+    <div class="HeaderMold wrap tl clearfix"><p class="fl"><img src="/images/logo.png" width="140" height="44" alt="">
+    </p>
+        <ul class="navs fr">
+            <li style="display:inline;" class='cur'><a href="/index.aspx" class="A01">官方首页官方首页</a></li>
+            <li style="display:inline;" class=""><a href="/Download.aspx" class="A02">游戏下载</a></li>
+            <li style="display:inline;" class=""><a href="/Recharge.aspx" class="A03">账号充值</a></li>
+            <li style="display:inline;" class=""><a href="/Shop/PrizeList.aspx" class="A04">奖品商城</a></li>
+            <li style="display:inline;" class=""><a href="/User/UserIndex.aspx" class="A06">个人中心</a></li>
+            <li style="display:none;" class=""><a href="/AboutUS.aspx" class="A05">关于我们</a></li>
+        </ul>
+    </div>
+</div>
+<div id="wrapper">
+    <div class="Poster wrap"></div>
+    <div class="wrap clearfix tl">
+        <div class="leftMold fl"><a id="linksA" href="RedirectPage.aspx?transferKey=PCDownloadUrl" target="_blank">
+            <div class="download"><img src="/images/download.jpg" alt=""></div>
+        </a>
+            <div class="comRegister">
+                <ul class="clearfix">
+                    <li><a href="/Registered.aspx" class="A01">快速注册</a></li>
+                    <li><a href="/Recharge.aspx" class="A02">账号充值</a></li>
+                    <li><a href="/Shop/PrizeList.aspx" class="A03">奖品商城</a></li>
+                    <li><a href="/User/UserIndex.aspx" class="A04">个人中心</a></li>
+                </ul>
+            </div>
+            <div class="comActivity p10"><a href="#"> <img src="/images/adv01.jpg" alt=""/> </a></div>
+            <div class="comService comMold">
+                <dl id="SiteLeft_dl1">
+                    <dt class="clearfix">
+                    <p class="fl"><img src="/images/ico-Service.png" alt=""></p> </dt>
+                    <dd class="plr20 ptb10 lh200">例行维护：<span id="SiteLeft_Span1">详情请关注微信客服</span><br/></dd>
+                    <dd class="plr20 ptb10 tc"><p class="p01 tc"><img id="Img1"
+                                                                      src="/images/QRCodeImages/IndexWeixinQr.png"
+                                                                      style="padding: 10px; width:186px;height:186px;"
+                                                                      alt=""></p>
+                        <p><img src="/images/weixin01.gif" alt=""></p>
+                    <dd><img src="/images/ico-Service01.png" alt=""></dd>
+                </dl>
+            </div>
+        </div>
+        <div class="rightMold fr">
+            <div class="d1 clearfix">
+                <div class="w500 fl">
+                    <div class="carouselBox"><img src="/images/adv06.jpg" alt="" id="exchangeImg"></div>
+                    <div class="comNews comMold mt10">
+                        <dl>
+                            <dt class="clearfix">
+                            <p class="fl"><a href="javascript:void(0)"> <img src="/images/ico-News.png" alt=""> </a> <a
+                                    href="/Games/IntroductionList.aspx"> <img src="/images/ico-Games.png" alt=""> </a>
+                            </p>
+                            <p class="fr"><a href="NewList.aspx" title="更多&gt;&gt;"> <img src="/images/ico-more.png"
+                                                                                          alt="更多&gt;&gt"></a></p> </dt>
+                            <ul id="rptNews" class="p10">
+                                <li><a href='News.aspx?newsId=12'><span
+                                        class='news fl'>【新闻】7月12日客户端将于00点00更新维护</span><span class='time fr'>07-12</span></a>
+                                </li>
+                                <li><a href='News.aspx?newsId=10'><span class='news fl'>【新闻】系统公告</span><span
+                                        class='time fr'>06-17</span></a></li>
+                                <li><a href='News.aspx?newsId=9'><span class='news fl'>【新闻】官方唯一客服qq</span><span
+                                        class='time fr'>06-04</span></a></li>
+                                <li><a href='News.aspx?newsId=8'><span class='news fl'>【新闻】每一个终端每天注册次数</span><span
+                                        class='time fr'>07-11</span></a></li>
+                                <li><a href='News.aspx?newsId=7'><span class='news fl'>【新闻】推荐人不用填写</span><span
+                                        class='time fr'>05-16</span></a></li>
+                            </ul>
+                        </dl>
+                    </div>
+                </div>
+                <div class="w210 fr"><a id="aBypc" target="_blank"
+                                        href="http://1717qp.com/RedirectPage.aspx?transferKey=DownloadQrTransferUrl">
+                    <div class="QRcode"><p class="p01 tc"><img src="/images/QRCodeImages/IndexDownloadQr.png"
+                                                               id="downloadImgUrl" style="padding-top: 10px;"/></p>
+                        <p><img src="/images/youxi01.gif" alt=""></p></div>
+                </a>
+                    <div class="comPrize comMold mt10">
+                        <dl>
+                            <dt class="clearfix">
+                            <p class="fl"><img src="/images/ico-PrizeTop.png" alt=""></p>
+                            <p class="fr"><a href="/Shop/PrizeList.aspx" title="更多&gt;&gt;"> <img
+                                    src="/images/ico-more.png" alt="更多&gt;&gt"></a></p> </dt>
+                            <ul id="ExchangeRankingUl" class="p10 icon">
+                                <li><p class='p01'><img src='/images/PrizeImage/201606042003088862.png' alt=''
+                                                        style='width:28px;height:28px;'></p>
+                                    <p class='p02'><b title='28888'>28888奖券</b><br/> <b title='微信红包18.88'>微信红包18.88</b>
+                                    </p> <a href='/Shop/Prize.aspx?prizeId=8' title='立即兑换'> <img
+                                            src='/images/Exchangebut.png' width='35px;' alt='立即兑换'></a></li>
+                                <li><p class='p01'><img src='/images/PrizeImage/201606042001211654.jpg' alt=''
+                                                        style='width:28px;height:28px;'></p>
+                                    <p class='p02'><b title='18888'>18888奖券</b><br/> <b title='10Q币'>10Q币</b></p> <a
+                                            href='/Shop/Prize.aspx?prizeId=7' title='立即兑换'> <img
+                                            src='/images/Exchangebut.png' width='35px;' alt='立即兑换'></a></li>
+                                <li><p class='p01'><img src='/images/PrizeImage/201606042000431041.png' alt=''
+                                                        style='width:28px;height:28px;'></p>
+                                    <p class='p02'><b title='6666666'>6666666奖券</b><br/> <b
+                                            title='苹果 iphone 6s 4.7寸苹果手机'>苹果 iphone 6s 4.7寸苹果手机</b></p> <a
+                                            href='/Shop/Prize.aspx?prizeId=6' title='立即兑换'> <img
+                                            src='/images/Exchangebut.png' width='35px;' alt='立即兑换'></a></li>
+                                <li><p class='p01'><img src='/images/PrizeImage/201606041959458198.png' alt=''
+                                                        style='width:28px;height:28px;'></p>
+                                    <p class='p02'><b title='6666666'>6666666奖券</b><br/> <b
+                                            title='三星 GALAXY S6 SM-G9208 S6移动版智能机'>三星 GALAXY S6 SM-G9208 S6移动版智能机</b>
+                                    </p> <a href='/Shop/Prize.aspx?prizeId=5' title='立即兑换'> <img
+                                            src='/images/Exchangebut.png' width='35px;' alt='立即兑换'></a></li>
+                                <li><p class='p01'><img src='/images/PrizeImage/201606041957039403.png' alt=''
+                                                        style='width:28px;height:28px;'></p>
+                                    <p class='p02'><b title='8888888'>8888888奖券</b><br/> <b
+                                            title='苹果 iPad Air 2 WLAN 64GB'>苹果 iPad Air 2 WLAN 64GB</b></p> <a
+                                            href='/Shop/Prize.aspx?prizeId=4' title='立即兑换'> <img
+                                            src='/images/Exchangebut.png' width='35px;' alt='立即兑换'></a></li>
+                            </ul>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="d2 mt10">
+                <div class="comHotGames comMold mt10">
+                    <dl>
+                        <dt class="clearfix">
+                        <p class="fl"><img src="/images/ico-hotGames.png" alt=""></p>
+                        <p class="fr"><a href="javascript:void(0);" title="更多&gt;&gt;"> <img src="/images/ico-more.png"
+                                                                                             alt="更多&gt;&gt"></a>
+                        </p> </dt>
+                        <ul id="gameList" class="p10 clearfix">
+                            <li style='display:inline;'><a href="/Games/IntroductionInfo.aspx?GameId=4002"><img
+                                    src="/images/4002.png" alt=""></a></li>
+                            <li style='display:inline;'><a href="/Games/IntroductionInfo.aspx?GameId=4003"><img
+                                    src="/images/4003.png" alt=""></a></li>
+                            <li style='display:inline;'><a href="/Games/IntroductionInfo.aspx?GameId=4004"><img
+                                    src="/images/4004.png" alt=""></a></li>
+                            <li style='display:inline;'><a href="/Games/IntroductionInfo.aspx?GameId=4005"><img
+                                    src="/images/4005.png" alt=""></a></li>
+                            <li style='display:none;'><a href="/Games/IntroductionInfo.aspx?GameId=4006"><img
+                                    src="/images/4006.png" alt=""></a></li>
+                            <li style='display:none;'><a href="/Games/IntroductionInfo.aspx?GameId=1001"><img
+                                    src="/images/1001.png" alt=""></a></li>
+                            <li style='display:none;'><a href="/Games/IntroductionInfo.aspx?GameId=1002"><img
+                                    src="/images/1002.png" alt=""></a></li>
+                            <li style='display:none;'><a href="/Games/IntroductionInfo.aspx?GameId=1004"><img
+                                    src="/images/1004.png" alt=""></a></li>
+                            <li style='display:none;'><a href="/Games/IntroductionInfo.aspx?GameId=1005"><img
+                                    src="/images/1005.png" alt=""></a></li>
+                            <li style='display:none;'><a href="/Games/IntroductionInfo.aspx?GameId=1008"><img
+                                    src="/images/1008.png" alt=""></a></li>
+                            <li style='display:none;'><a href="/Games/IntroductionInfo.aspx?GameId=1010"><img
+                                    src="/images/1010.png" alt=""></a></li>
+                            <li style='display:none;'><a href="/Games/IntroductionInfo.aspx?GameId=1011"><img
+                                    src="/images/1011.png" alt=""></a></li>
+                            <li style='display:none;'><a href="/Games/IntroductionInfo.aspx?GameId=1007"><img
+                                    src="/images/1007.png" alt=""></a></li>
+                            <li style='display:none;'><a href="/Games/IntroductionInfo.aspx?GameId=1009"><img
+                                    src="/images/1009.png" alt=""></a></li>
+                            <li style='display:none;'><a href="/Games/IntroductionInfo.aspx?GameId=1013"><img
+                                    src="/images/1013.png" alt=""></a></li>
+                        </ul>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="common_footer oh mt20">
+    <div class=" mt50 mb20"><a id="toTop" class="to_top" href="#top">返回顶部</a></div>
+    <div class="mfoot"><p class="pb10 lh20"> 健康游戏忠告：抵制不良游戏，拒绝盗版游戏; 注意自我保护，谨防受骗上当，适度游戏益脑; 沉迷游戏伤身，合理安排时间，享受健康生活;
+        <br/> &copy; <span onclick="versionClick()">2015 777游戏中心科技有限公司</span> <span id="SiteFooter_versionSpan"
+                                                                                    style="display:none;">当前版本号10020，发布日期：2016-01-28 21:00</span>
+    </p></div>
+</div>
+<div class="none"> <!--统计代码--> </div>
+<script type="text/javascript"> function closeClick() {
+    $("div[class=max]").hide();
+}
+function versionClick() {
+    if ($("#SiteFooter_versionSpan").attr("style") == "display: none;") {
+        $("#SiteFooter_versionSpan").attr("style", "display:inline;");
+    } else {
+        $("#SiteFooter_versionSpan").attr("style", "display: none;");
+    }
+} </script>
+<style type="text/css"> .max {
+    position: fixed;
+    right: 80px;
+    top: 8%;
+    width: 152px;
+    height: 259px;
+}
+
+.Lelem {
+    width: 181px;
+    height: 304px;
+    position: relative;
+    z-index: 10000;
+    cursor: pointer;
+}
+
+.BackDiv {
+    display: block;
+    cursor: default;
+    position: absolute;
+    left: 0px;
+    width: 180px;
+    height: 49px;
+}
+
+.BackDiv img {
+    width: 181px;
+    height: 48px;
+}
+
+.iconDivMain1 {
+    z-index: 10085;
+    left: 1px;
+    top: 165px;
+    width: 181px;
+    height: 304px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.qqImg {
+    display: block;
+    cursor: default;
+    position: absolute;
+    top: 209px;
+    left: 22px;
+    z-index: 10014;
+    width: 16px;
+    height: 16px;
+}
+
+.qqDiv {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    left: 52px;
+    width: 90px;
+    height: 17px;
+    color: rgb(255, 255, 255);
+}
+
+.qqDiv span {
+    vertical-align: top;
+    font-size: 12px;
+    line-height: 17px;
+    color: rgb(255, 243, 171);
+    font-family: 微软雅黑;
+} </style>
+<div class="max">
+    <div class="iconDivMain1">
+        <div class="Lelem">
+            <div id='backDiv'>
+                <div>
+                    <div style='position:absolute;right:0px;top:0px;'><img src='/images/btn-Close.png'
+                                                                           onclick='closeClick()'/></div>
+                    <img src='/images/OnLineService.png' style='width: 180px; height: 49px;'/></div>
+                <div class='BackDiv' style='top:49px;z-index:10002;'><img src='/images/icon_on.png'/></div>
+                <div class='BackDiv' style='top:97px;z-index:10005;'><img src='/images/icon_on.png'/></div>
+                <div class='BackDiv' style='top:145px;z-index:10006;'><img src='/images/icon_on.png'/></div>
+                <div class='BackDiv' style='top:193px;z-index:10007;'><img src='/images/icon_on.png'/></div>
+                <div class='BackDiv' style='top:241px;z-index:10008;'><img src='/images/icon_on.png'/></div>
+            </div>
+            <a href='http://wpa.qq.com/msgrd?v=3&uin=800121440&site=qianniao&menu=yes' target='_blank'>
+                <div class='qqImg' style='top:65px;z-index:10003;'><img src='/images/otherimg_1.png'
+                                                                        style='width: 16px; height: 16px;'/></div>
+                <div class='qqDiv' style='top: 65px;z-index:10004;'><span
+                        style='vertical-align: top; font-size: 12px; line-height: 17px; color: rgb(255, 243, 171); font-family: 微软雅黑;'> 800121440 </span>
+                </div>
+            </a></div>
+    </div>
+</div>
+</body>
+</html>

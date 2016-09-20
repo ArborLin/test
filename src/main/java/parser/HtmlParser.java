@@ -31,6 +31,10 @@ public class HtmlParser {
         return doc.select("form");
     }
 
+    public Elements getDoc() {
+        return doc.getAllElements();
+    }
+
     public String getUrl() {
         return url;
     }

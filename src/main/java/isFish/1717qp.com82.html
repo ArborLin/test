@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>欢迎登录游戏管理系统</title>
+    <link type="text/css" href="/css/style.css" rel="stylesheet"/>
+    <script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/js/cloud.js"></script>
+    <script type="text/javascript"> $(function () {
+        $('.loginbox').css({'position': 'absolute', 'left': ($(window).width() - 692) / 2});
+        $(window).resize(function () {
+            $('.loginbox').css({'position': 'absolute', 'left': ($(window).width() - 692) / 2});
+        });
+    });
+    function versionSpanClick(e) {
+        if ($("#versionSpan").attr("style") == "display: none;") {
+            $("#versionSpan").attr("style", "display:inline;");
+        } else {
+            $("#versionSpan").attr("style", "display: none;");
+        }
+    } </script>
+</head>
+<body style="background-color: #1c77ac; background-image: url(/images/light.png); background-repeat: no-repeat; background-position: center top; overflow: hidden;">
+<form method="post" action="" id="form1"><input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+                                                value="/wEPDwUKLTQ4MjA2NDIwMQ9kFgICAQ9kFgICCw8WAh4JaW5uZXJodG1sBSvniYjmnKzlj7cxMDAzMCzlj5HluIPml6XmnJ8yMDE2LTAxLTI4IDIxOjAwZGS8WRb6X+s4J4ZlsacnDsF/o4eC0lO9MtVZgXICkmJdBQ=="/>
+    <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION"
+           value="/wEWBALW8JPpDgKl1bKzCQK9wKW7DAKC3IeGDFhJjFge7FpCZOMsSpwVdLpTJXkpo5kctOq5BbctKPwR"/>
+    <div id="mainBody">
+        <div id="cloud1" class="cloud"></div>
+        <div id="cloud2" class="cloud"></div>
+    </div>
+    <div class="logintop"><span>欢迎登录后台管理平台</span></div>
+    <div class="loginbody"><span class="systemlogo"></span>
+        <div class="loginbox">
+            <ul>
+                <li><input name="txtUserName" type="text" id="txtUserName" class="loginuser"
+                           onclick="JavaScript: this.value = &#39;&#39;" value="账号"/> &nbsp; </li>
+                <li><input name="txtUserPassword" type="password" id="txtUserPassword" class="loginpwd"
+                           onclick="JavaScript: this.value = &#39;&#39;"/> &nbsp; </li>
+                <li><input type="submit" name="btnLogin" value="登录"
+                           onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnLogin&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))"
+                           id="btnLogin" class="loginbtn"/></li>
+            </ul>
+        </div>
+    </div>
+    <div class="loginbm" onclick="versionSpanClick()">&nbsp&nbsp&nbsp&nbsp&nbsp<span id="versionSpan"
+                                                                                     style="display: none;">版本号10030,发布日期2016-01-28 21:00</span>
+    </div>
+</form>
+</body>
+</html>

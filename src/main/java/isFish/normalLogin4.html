@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title> 义乌市新金利保健食品有限公司OA管理系统登录 </title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"/>
+    <style type="text/css"> body {
+        padding-top: 150px;
+        font-size: 12px;
+        background: #96D0DC;
+    }
+
+    .box {
+        background: url(images/loginbg.gif) no-repeat center center;
+        width: 420px;
+        height: 380px;
+    }
+
+    .login {
+        padding: 152px 0 0 258px;
+    }
+
+    .login div {
+        height: 26px;
+    }
+
+    .admininput {
+        padding: 3px;
+        border: 0;
+        width: 116px;
+        height: 18px;
+        background: url(images/inputbg.gif) no-repeat 1px top;
+        vertical-align: middle;
+    }
+
+    .adminbut1 {
+        background: url('images/login.gif');
+        width: 54px;
+        height: 25px;
+        border: 0px;
+    }
+
+    .adminbut2 {
+        background: url('images/reset.gif');
+        width: 54px;
+        height: 25px;
+        border: 0px;
+    }
+
+    #chk input, #chk label {
+        vertical-align: middle;
+    } </style>
+    <script language="javascript"
+            type="text/javascript"> if (top.location !== self.location) top.location = self.location; </script>
+</head>
+<body>
+<form name="form1" method="post" action="admin_login.aspx" id="form1"><input type="hidden" name="__VIEWSTATE"
+                                                                             id="__VIEWSTATE"
+                                                                             value="/wEPDwUKLTQxNDkzMTY3OWRk"/>
+    <div style="margin:0px auto; width:420px; height:400px;">
+        <div class="box">
+            <div class="login">
+                <div><input name="adminname" type="text" id="adminname" class="admininput"/> &nbsp; </div>
+                <div><input name="adminpass" type="password" id="adminpass" class="admininput"/> &nbsp; </div>
+                <div><input name="admincord" type="text" maxlength="4" id="admincord" class="admininput"/> <img
+                        id="Image1" align="absmiddle" onclick="this.src='inc/validatecode.aspx?cord='+Math.random()"
+                        src="inc/validatecode.aspx" alt="单击更新验证码！" border="0" height="22"
+                        style="cursor:pointer; vertical-align:middle;"/> &nbsp; </div>
+                <div id="chk"></div>
+            </div>
+            <div style="padding:0 0 0 220px;"><input type="submit" name="Button1" value=""
+                                                     onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;Button1&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))"
+                                                     language="javascript" id="Button1" class="adminbut1"/> &nbsp;
+                &nbsp; <input type="reset" value="" class="adminbut2"/> &nbsp; </div>
+        </div>
+        <div style=" margin-top:40px; text-align:center; color:#fff;"> 义乌市新金利保健食品有限公司版权所有 2010~2013</div>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,665 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <base target=”_blank”/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>hang360导航360：最专业的学科、行业网址导航 </title>
+    <script type="text/javascript" src="http://www.hang360.cn/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="http://www.hang360.cn/js/jquery-ui-1.8.2.custom.min.js"></script>
+    <script type="text/javascript" src="http://www.hang360.cn/js/jquery.cookie.js"></script>
+    <link href="images/Sytle.css" type="text/css" rel="stylesheet"/>
+</head> <!-- published at 20160630 13:47:59-->
+<body>
+<div style="width: 1000px; margin:auto; float:none;">
+    <div style="width:630px; float:left; margin:3px 0px 3px 0px; padding-left:350px;">
+        <div style="margin:5px 0px 0px 0px; float:right;"><span id="nana"></span>&nbsp;|&nbsp; <a target=_top
+                                                                                                  href="javascript:window.external.addFavorite('http://hang360.neefull.com/h360/h360/index.html','导航360');">加入收藏</a>
+            &nbsp;|&nbsp; <a onclick="SetHome(this,window.location)" href="#">设为首页</a> </a>&nbsp;|&nbsp; <a href="#"
+                                                                                                            class="fontLink1">留言反馈</a>
+        </div>
+    </div>
+    <script language="javascript"> function csubstr(str, len) {
+        if (str.length > 10) {
+            return str.substring(0, len) + "...";
+        } else {
+            return str;
+        }
+    }
+    function SetHome(obj, vrl) {
+        try {
+            obj.style.behavior = 'url(#default#homepage)';
+            obj.setHomePage(vrl);
+        } catch (e) {
+            if (window.netscape) {
+                try {
+                    netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+                } catch (e) {
+                    alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
+                }
+                var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+                prefs.setCharPref('browser.startup.homepage', vrl);
+            }
+        }
+    }
+    function setCookie(sName, sValue) {
+        var expires = new Date();
+        expires.setTime(expires.getTime() + 3 * 30 * 24 * 60 * 60 * 1000);
+        document.cookie = sName + "=" + escape(sValue) + ";expires=" + expires.toGMTString();
+        +";";
+    }
+    function getCookie(sName) {
+        var aCookie = document.cookie.split("; ");
+        for (var i = 0; i < aCookie.length; i++) {
+            var aCrumb = aCookie[i].split("=");
+            if (sName == aCrumb[0]) return unescape(aCrumb[1]);
+        }
+        return null;
+    }
+    $(function () {
+        if (typeof ($.cookie('userInfo')) != "undefined") {
+            document.getElementById("nana").innerHTML = "<font style='color:blue; font-weight:bold'>欢迎您[" + $.cookie('userInfo') + "]</font>，<a href='http://cms.hang360.cn//h360/userVipLogin/login'>个人中心</a>，<a href='http://cms.hang360.cn//h360/userVipLogin/out'>退出</a>";
+        } else {
+            document.getElementById("nana").innerHTML = "<a href='http://cms.hang360.cn//h360/userVipLogin/login'><font style='color:blue; font-weight:bold'>登录</a>,<a href='http://cms.hang360.cn//h360/userRegist/register'>注册</a>";
+        }
+    });
+    function chechkLogin() {
+        if ($("#userName").val() == "") {
+            alert("请输入用户名");
+            return false;
+        }
+        if ($("#s_randomCode").val() == "") {
+            alert("请输入验证码");
+            return false;
+        }
+    } </script>
+    <div style="width:990px; height:110px;">
+        <div style="width:212px; margin:0px 0px 0px 0px; float:left;"><img src="images/logo.jpg"/></div>
+        <div style="margin:0px 0px 0px 0px; float:left;">
+            <iframe allowtransparency="true" frameborder="0" width="290" height="96" scrolling="no"
+                    src="http://tianqi.2345.com/plugin/widget/index.htm?s=2&v=0&f=10&b=&k=&t=0&a=1&c=54511&d=2&e=1"></iframe>
+        </div>
+        <div style="margin:0px 10px 0px 20px; float:left;">
+            <table width="110%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="15%" height="25">账号</td>
+                    <td width="85%"><input name="textfield" type="text"
+                                           onkeypress="if(event.keyCode==13) {event.keyCode=9; document.getElementById('password').focus();}"
+                                           size="20" style="height:12px;"/></td>
+                </tr>
+                <tr>
+                    <td height="25">邮箱</td>
+                    <td><select name="select" style="width:133px;">
+                        <option>请选择邮箱</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td height="25">密码</td>
+                    <td><input name="textfield" type="password" size="10" style="height:12px;"
+                               onkeypress="javascript:KeyDown();"/> <input type="submit" name="Submit" value="登录"
+                                                                           style="height:20px;"/></td>
+                </tr>
+            </table>
+            <script language="javascript"> function KeyDown() {
+                if (event.keyCode == 13) {
+                    event.returnValue = false;
+                    event.cancel = true;
+                    login();
+                }
+            }
+            function getCookie(sName) {
+                var aCookie = document.cookie.split(";");
+                for (var i = 0; i < aCookie.length; i++) {
+                    var aCrumb = aCookie[i].split("=");
+                    if (sName == aCrumb[0]) return decodeURIComponent(aCrumb[1]);
+                }
+                return null;
+            }
+            function deleteCookie(name, path, domain) {
+                var expires = new Date();
+                expires.setTime(expires.getTime() - 1);
+                setCookie(name, "Delete Cookie", expires, path, domain, false);
+            }
+            function setCookie(name, value, expiry, path, domain, secure) {
+                var nameString = name + "=" + value;
+                var expiryString = (expiry == null) ? "" : " ;expires = " + expiry.toGMTString();
+                var pathString = (path == null) ? "" : " ;path = " + path;
+                var domainString = (path == null) ? "" : " ;domain = " + domain;
+                var secureString = (secure) ? ";secure" : "";
+                document.cookie = nameString + expiryString + pathString + domainString + secureString;
+            }
+            var userName = getCookie("s_fullName");
+            if (userName != null && userName != "") {
+                $("#loginArea").replaceWith("<div style='line-height:22px;width:400px;float: left;font-size:12px;font-family:宋体;color:4A4A4A;margin-left:8px;'>" + userName + "，您好！欢迎登陆塘桥温馨宜居网！<img src='http://www.hang360.cn/images/img5.gif' width='12' height='12' align='absmiddle' style='margin-top: -1px;'/><a href='javascript:loginOut();' class='menuTop'>[退出]</a></div>");
+            }
+            function login() {
+                var loginName = $("#loginName");
+                var pass = $("#password");
+                if (loginName.val() != "" && pass.val() != "") {
+                    jQuery.getJSON("http://www.hang360.cn//userVipLogin/login/1?loginName=" + loginName.val() + "&password=" + pass.val() + "&date=" + (new Date()).valueOf() + "&callback=?", function (data) {
+                        if (data.result == 1) {
+                            window.open("http://cms.tangqiao.sh.cn");
+                        } else {
+                            window.location.href = "http://shequ.tangqiao.sh.cn/web/login?loginName=" + loginName.val() + "&password=" + pass.val();
+                        }
+                    });
+                } else {
+                    alert("用户名和密码不能为空！");
+                }
+            }
+            function loginOut() {
+                deleteCookie("s_fullName", "/", document.location.hostname);
+                deleteCookie("s_token", "/", document.location.hostname);
+                deleteCookie("sid", "/", document.location.hostname);
+                jQuery.getJSON("http://cms.hang360.cn//h360/login/o?date=" + (new Date()).valueOf() + "&callback=?", function (data) {
+                    window.location = "http://www.hang360.cn/";
+                });
+            }
+            function changeSkin(color) {
+                setCookie("<%=FrameworkConstants.SKIN%>", color, null, "<%=GlobalConfig.getCookiePath()%>", "<%=GlobalConfig.getCookieDomain()%>");
+                var skin = $("#lnkStyle");
+                $(skin).attr("href", "http://www.hang360.cn/" + color + "/loginCss/MainNewSytle.css");
+                var href = document.getElementById("lnkStyle").href;
+                var indexMenuLeft = $("#indexMenuLeft");
+                $(indexMenuLeft).attr("src", "http://www.hang360.cn/" + color + "/loginImages/indexMenuLeft.jpg");
+                var indexMenuRight = $("#indexMenuRight");
+                $(indexMenuRight).attr("src", "http://www.hang360.cn/" + color + "/loginImages/indexMenuRight.jpg");
+                var interflowImg1 = $("#interflowImg1");
+                $(interflowImg1).attr("src", "http://www.hang360.cn/" + color + "/loginImages/interflowImg1.jpg");
+                var interflowImg2 = $("#interflowImg2");
+                $(interflowImg2).attr("src", "http://www.hang360.cn//" + color + "/loginImages/interflowImg2.jpg");
+                var interflowImg3 = $("#interflowImg3");
+                $(interflowImg3).attr("src", "http://www.hang360.cn/" + color + "/loginImages/interflowImg3.jpg");
+                var interflowImg4 = $("#interflowImg4");
+                $(interflowImg4).attr("src", "http://www.hang360.cn/" + color + "/loginImages/interflowImg4.jpg");
+                var interflowImg5 = $("#interflowImg5");
+                $(interflowImg5).attr("src", "http://www.hang360.cn/" + color + "/loginImages/interflowImg5.jpg");
+                var interflowImg6 = $("#interflowImg6");
+                $(interflowImg6).attr("src", "http://www.hang360.cn/" + color + "/loginImages/interflowImg6.jpg");
+                var serviceImg1 = $("#serviceImg1");
+                $(serviceImg1).attr("src", "http://www.hang360.cn/" + color + "/loginImages/serviceImg1.jpg");
+                var serviceImg2 = $("#serviceImg2");
+                $(serviceImg2).attr("src", "http://www.hang360.cn/" + color + "/loginImages/serviceImg2.jpg");
+                var serviceImg3 = $("#serviceImg3");
+                $(serviceImg3).attr("src", "http://www.hang360.cn/" + color + "/loginImages/serviceImg3.jpg");
+                var serviceImg4 = $("#serviceImg4");
+                $(serviceImg4).attr("src", "http://www.hang360.cn/" + color + "/loginImages/serviceImg4.jpg");
+                var serviceImg5 = $("#serviceImg5");
+                $(serviceImg5).attr("src", "http://www.hang360.cn/" + color + "/loginImages/serviceImg5.jpg");
+                var serviceImg6 = $("#serviceImg6");
+                $(serviceImg6).attr("src", "http://www.hang360.cn/" + color + "/loginImages/serviceImg6.jpg");
+                var serviceImg7 = $("#serviceImg7");
+                $(serviceImg7).attr("src", "http://www.hang360.cn/" + color + "/loginImages/serviceImg7.jpg");
+                var serviceImg8 = $("#serviceImg8");
+                $(serviceImg8).attr("src", "http://www.hang360.cn/" + color + "/loginImages/serviceImg8.jpg");
+                var serviceImg9 = $("#serviceImg9");
+                $(serviceImg9).attr("src", "http://www.hang360.cn/" + color + "/loginImages/serviceImg9.jpg");
+                var serviceImg9 = $("#serviceImg10");
+                $(serviceImg10).attr("src", "http://www.hang360.cn/" + color + "/loginImages/serviceImg10.jpg");
+                var RightBg1 = $("#RightBg1");
+                $(RightBg1).attr("src", "http://www.hang360.cn/" + color + "/loginImages/RightBg1.jpg");
+                var RightBg2 = $("#RightBg2");
+                $(RightBg2).attr("src", "http://www.hang360.cn/" + color + "/loginImages/RightBg2.jpg");
+                var RightBg22 = $("#RightBg22");
+                $(RightBg22).attr("src", "http://www.hang360.cn/" + color + "/loginImages/RightBg2.jpg");
+                var RightBg3 = $("#RightBg3");
+                $(RightBg3).attr("src", "http://www.hang360.cn/" + color + "/loginImages/RightBg3.jpg");
+                var RightBg222 = $("#RightBg222");
+                $(RightBg222).attr("src", "http://www.hang360.cn/" + color + "/loginImages/RightBg5.jpg");
+                var Right444 = $("#Right444");
+                $(Right444).attr("src", "http://www.hang360.cn/" + color + "/loginImages/RightBg6.jpg");
+                var Right2222 = $("#Right2222");
+                $(Right2222).attr("src", "http://www.hang360.cn/" + color + "/loginImages/RightBg5.jpg");
+                var Right22222 = $("#Right22222");
+                $(Right22222).attr("src", "http://www.hang360.cn/" + color + "/loginImages/RightBg5.jpg");
+                var interflowImg11 = $("#interflowImg11");
+                $(interflowImg11).attr("src", "http://www.hang360.cn/" + color + "/loginImages/interflowImg11.jpg");
+                var interflowImg12 = $("#interflowImg12");
+                $(interflowImg12).attr("src", "http://www.hang360.cn/" + color + "/loginImages/interflowImg11.jpg");
+                var Right22222 = $("#interflowImg13");
+                $(interflowImg13).attr("src", "http://www.hang360.cn/" + color + "/loginImages/interflowImg13.jpg");
+                var Right22222 = $("#interflowImg14");
+                $(interflowImg14).attr("src", "http://www.hang360.cn/" + color + "/loginImages/interflowImg14.jpg");
+            }
+            var count = getCookie("counter");
+            if (count == null) {
+                jQuery.getJSON("http://cms.hang360.cn//h360/browseCount/get/1?date=" + (new Date()).valueOf() + "&callback=?", function (msg) {
+                    count = msg.counter; //访问量	var expdate = new Date(); expdate.setTime(expdate.getTime() + (60 * 60 * 1000)); setCookie("counter",count,expdate); }); }else{ //访问量 } function search(){ if($("#search").val()!=""){ $("#searchForm").submit(); }else{ alert("请输入要搜索的内容"); } } </script>
+        </div>
+        <div style="margin:10px 0px 0px 0px; float:right;">
+            <div style="margin:10px 0px 0px 0px; float:right;"><img src="http://www.hang360.cn/images/logo1.jpg"
+                                                                    width="242" height="62"/></div>
+        </div>
+    </div>
+    <div class="divBorder1" style="padding:0px 30px 0px 30px; width:928px;">
+        <form action="http://www.baidu.com/baidu" target="_blank">
+            <table bgcolor="#FFFFFF">
+                <tr>
+                    <td><input name=tn type=hidden value=baidu> <a href="http://www.baidu.com/"><img
+                            src="images/web.png" alt="Baidu" align="bottom" border="0"></a> <input type=text name=word
+                                                                                                   size=80> <input
+                            type="submit" value="百度搜索"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div style="width:990px; float:left;">
+        <div class="divBorder1 divLeft"><p class="fontTittle1">实用查询</p>
+            <p><span class="spanStyle1"><a href="12582" class="fontLink1">文献检索</a></span> <span class="spanStyle1"><a
+                    href="12583" class="fontLink1">查专利</a></span> <span class="spanStyle1"><a href="12586"
+                                                                                              class="fontLink1">专业期刊</a></span>
+            <p><span class="spanStyle1"><a href="12587" class="fontLink1">英语学习</a></span> <span class="spanStyle1"><a
+                    href="12588" class="fontLink1">查展会</a></span> <span class="spanStyle1"><a href="12589"
+                                                                                              class="fontLink1">在线翻译</a></span>
+            <p><span class="spanStyle1"><a href="12590" class="fontLink1">大学论坛</a></span> <span class="spanStyle1"><a
+                    href="12591" class="fontLink1">身份证</a></span> <span class="spanStyle1"><a href="12592"
+                                                                                              class="fontLink1">手机归属</a></span>
+            <p><span class="spanStyle1"><a href="12593" class="fontLink1">差旅旅游</a></span> <span class="spanStyle1"><a
+                    href="12594" class="fontLink1">电子书</a></span> <span class="spanStyle1"><a href="12595"
+                                                                                              class="fontLink1">快递查询</a></span>
+            <p><span class="spanStyle1"><a href="12596" class="fontLink1">留学移民</a></span> <span class="spanStyle1"><a
+                    href="12597" class="fontLink1">查地图</a></span> <span class="spanStyle1"><a href="12600"
+                                                                                              class="fontLink1">创业频道</a></span>
+            </p></div>
+        <div class="divBorder2 divRight"><p><span class="spanStyle2"><a href="http://emuch.net/ "
+                                                                        class="fontLink2">小木虫</a></span> <span
+                class="spanStyle2"><a href="http://www.10086.cn/" class="fontLink2">中国移动</a></span> <span
+                class="spanStyle2"><a href="http://www.sina.com.cn/ " class="fontLink2">新 浪</a></span> <span
+                class="spanStyle2"><a href="http://www.51job.com/" class="fontLink2">前程无忧</a></span> <span
+                class="spanStyle2"><a href="http://www.12306.cn/" class="fontLink2">12306火车票</a></span> <span
+                class="spanStyle2"><a href="http://www.iresearch.cn/ " class="fontLink2">艾瑞网</a></span>
+            <p><span class="spanStyle2"><a href="http://www.icbc.com.cn/icbc/" class="fontLink2">工商银行</a></span> <span
+                    class="spanStyle2"><a href="http://www.dangdang.com" class="fontLink2">当当网</a></span> <span
+                    class="spanStyle2"><a href="http://www.fenzhi.com/" class="fontLink2">分智网</a></span> <span
+                    class="spanStyle2"><a href="http://weibo.com " class="fontLink2">新浪微博</a></span> <span
+                    class="spanStyle2"><a href="http://www.cmbchina.com/" class="fontLink2">招商银行</a></span> <span
+                    class="spanStyle2"><a href="http://www.tianya.cn/" class="fontLink2">天 涯</a></span>
+            <p><span class="spanStyle2"><a href=" http://www.163.com/" class="fontLink2">网 易</a></span> <span
+                    class="spanStyle2"><a href="http://open.163.com/" class="fontLink2">网易公开课</a></span> <span
+                    class="spanStyle2"><a href="http://www.sohu.com/ " class="fontLink2">搜 狐</a></span> <span
+                    class="spanStyle2"><a href="http://www.hc360.com/ " class="fontLink2">慧聪网</a></span> <span
+                    class="spanStyle2"><a href="http://www.kaixin001.com/" class="fontLink2">开心网</a></span> <span
+                    class="spanStyle2"><a href="http://www.amazon.cn" class="fontLink2">卓越亚马逊</a></span>
+            <p><span class="spanStyle2"><a href="http://www.chinatelecom.com.cn/" class="fontLink2">中国电信</a></span>
+                <span class="spanStyle2"><a href="http://www.renhe.cn/ " class="fontLink2">人和网</a></span> <span
+                        class="spanStyle2"><a href="http://www.verycd.com/" class="fontLink2">VeryCD</a></span> <span
+                        class="spanStyle2"><a href="http://www.zhubajie.com " class="fontLink2">猪八戒网</a></span> <span
+                        class="spanStyle2"><a href="http://www.baidu.com/" class="fontLink2">百 度</a></span> <span
+                        class="spanStyle2"><a href="http://www.google.com.hk/" class="fontLink2">谷 歌</a></span>
+            <p><span class="spanStyle2"><a href="http://www.ifeng.com/" class="fontLink2">凤凰网</a></span> <span
+                    class="spanStyle2"><a href="http://www.10010.com/" class="fontLink2">中国联通</a></span> <span
+                    class="spanStyle2"><a href="http://www.xinhuanet.com/" class="fontLink2">新华网</a></span> <span
+                    class="spanStyle2"><a href="https://www.alipay.com/" class="fontLink2">支付宝</a></span> <span
+                    class="spanStyle2"><a href="http://songshuhui.net/" class="fontLink2">科学松鼠会</a></span> <span
+                    class="spanStyle2"><a href="http://www.qq.com/ " class="fontLink2">腾 讯</a></span>
+            <p><span class="spanStyle2"><a href="http://t.qq.com/" class="fontLink4">腾讯微博</a></span> <span
+                    class="spanStyle2"><a href="http://www.people.com.cn/" class="fontLink4">人民网</a></span> <span
+                    class="spanStyle2"><a href="http://www.renren.com/" class="fontLink4">人人网</a></span> <span
+                    class="spanStyle2"><a href="http://www.1688.com/ " class="fontLink4">阿里巴巴</a></span> <span
+                    class="spanStyle2"><a href="http://www.taobao.com/" class="fontLink4">淘宝网</a></span> <span
+                    class="spanStyle2"><a href="http://www.ctrip.com" class="fontLink4">携程旅行网</a></span></p></div>
+    </div>
+    <div style="width:630px; float:left; margin:3px 0px 3px 0px; padding-left:350px;"><span><a href="#"
+                                                                                               class="fontLink5">电脑数码手机</a></span>
+        <span class="spanStyle1"><a href="#" class="fontLink5">影视视频</a></span> <span class="spanStyle1"><a href="#"
+                                                                                                           class="fontLink5">游戏</a></span>
+        <span class="spanStyle1"><a href="#" class="fontLink5">新闻</a></span> <span class="spanStyle1"><a href="#"
+                                                                                                         class="fontLink5">体育</a></span>
+        <span class="spanStyle1"><a href="#" class="fontLink5">小说</a></span> <span class="spanStyle1"><a href="#"
+                                                                                                         class="fontLink5">商城</a></span>
+        <span class="spanStyle1"><a href="#" class="fontLink5">音乐</a></span> <span class="spanStyle1"> <a href="#"
+                                                                                                          class="fontLink1"
+                                                                                                          style="color:#FF0000;">查看全部分类>></a> </span>
+    </div>
+    <div style="divAllBox">
+        <div class="divLeftBox">
+            <div class="divBorder1 divLeft" style="margin-top:0px;"><p class="fontTittle1">电商购物</p>
+                <p><span class="spanStyleLeft2"> <a href="http://www.jd.com/" class="fontLink1"> 京东商城. </a></span> <span
+                        class="spanStyleLeft2"><a href="http://www.suning.com/" class="fontLink1"> 苏宁易购. </a></span>
+                    <span class="spanStyleLeft2"><a href="http://www.yhd.com/" class="fontLink1"> 1号店超. </a></span>
+                <p><span class="spanStyleLeft2"> <a href="http://www.vancl.com/" class="fontLink1"> 凡客诚品. </a></span>
+                    <span class="spanStyleLeft2"><a href="http://www.gome.com.cn/" class="fontLink1"> 国美在线. </a></span>
+                    <span class="spanStyleLeft2"><a href="http://www.mbaobao.com/" class="fontLink1"> 麦包包 </a></span>
+                </p></div>
+            <div class="divBorder1 divLeft" style="margin-top:8px;"><p class="fontTittle1">考试充电</p>
+                <p><span> <a href="12604" class="fontLink1"> 考研 . </a></span> <span class="spanStyleLeft2"><a
+                        href="12605" class="fontLink1"> 考博</a></span> <span class="spanStyleLeft2"><a href="12606"
+                                                                                                      class="fontLink1">
+                    英语四六.</a></span>
+                <p><span> <a href="12607" class="fontLink1"> 高考 </a></span> <span class="spanStyleLeft2"><a href="12608"
+                                                                                                            class="fontLink1">
+                    软考 .</a></span> <span class="spanStyleLeft2"><a href="12609" class="fontLink1"> 计算机等.</a></span>
+                <p><span> <a href="12610" class="fontLink1"> 口译 . </a></span> <span class="spanStyleLeft2"><a
+                        href="12611" class="fontLink1"> 雅思 .</a></span> <span class="spanStyleLeft2"><a href="12612"
+                                                                                                        class="fontLink1">
+                    托福 .</a></span>
+                <p><span> <a href="12613" class="fontLink1"> GRE考. </a></span> <span class="spanStyleLeft2"><a
+                        href="12921" class="fontLink1"> 公务员考.</a></span> <span class="spanStyleLeft2"><a href="12922"
+                                                                                                         class="fontLink1">
+                    MBA考.</a></span>
+                <p><span> <a href="12923" class="fontLink1"> 成人高考. </a></span> <span class="spanStyleLeft2"><a
+                        href="12925" class="fontLink1"> 注册会计.</a></span> <span class="spanStyleLeft2"><a href="12926"
+                                                                                                         class="fontLink1">
+                    报关员</a></span>
+                <p><span> <a href="12927" class="fontLink1"> 物流师 </a></span> <span class="spanStyleLeft2"><a
+                        href="12928" class="fontLink1"> 物流师</a></span> <span class="spanStyleLeft2"><a href="12929"
+                                                                                                       class="fontLink1">
+                    银行从业.</a></span>
+                <p><span> <a href="12930" class="fontLink1"> 证券从业. </a></span> <span class="spanStyleLeft2"><a
+                        href="12931" class="fontLink1"> 执业医师.</a></span> <span class="spanStyleLeft2"><a href="12932"
+                                                                                                         class="fontLink1">
+                    执业药师.</a></span>
+                <p><span> <a href="12933" class="fontLink1"> 司法考试. </a></span> <span class="spanStyleLeft2"><a
+                        href="12934" class="fontLink1"> 微软认证.</a></span> <span class="spanStyleLeft2"><a href="12935"
+                                                                                                         class="fontLink3"
+                                                                                                         style="font-size:12px;">
+                    商务英语.</a></span><span style="float:right;"> <a href="#" class="fontLink4"
+                                                                   style="font-size:12px;"></a></span></p></div>
+            <div class="divBorder1 divLeft" style="margin-top:8px;"><p class="fontTittle1">求职招聘</p>
+                <p><span class="spanStyleQiu"> <a href="http://hang360.neefull.com/h360/h360/12615" class="fontLink1">
+                    [综合招聘]</a> </span> <span class="spanStyleLeft3"><a href="http://www.51job.com/ " class="fontLink1">
+                    前程无忧.</a></span> <span class="spanStyleLeft3"><a href="http://www.zhaopin.com/" class="fontLink1">
+                    智联招聘.</a></span></p>
+                <p><span class="spanStyleQiu"> <a href="http://hang360.neefull.com/h360/h360/12616" class="fontLink1">
+                    [行业招聘]</a> </span> <span class="spanStyleLeft3"><a href="http://www.veryeast.cn/" class="fontLink1">
+                    最佳东方.</a></span> <span class="spanStyleLeft3"><a href="http://www.buildhr.com/" class="fontLink1">
+                    建筑英才.</a></span></p>
+                <p><span class="spanStyleQiu"> <a href="http://hang360.neefull.com/h360/h360/12617" class="fontLink1">
+                    [猎头招聘]</a> </span> <span class="spanStyleLeft3"><a href="http://www.lietou.com/" class="fontLink1">
+                    猎聘网</a></span> <span class="spanStyleLeft3"><a href="http://www.yunlietou.com/index.asp"
+                                                                   class="fontLink1"> 云猎头网.</a></span></p></div>
+            <div class="divBorder1 divLeft" style="margin-top:8px;"><p class="fontTittle1">专业软件</p>
+                <p><span class="spanStyleLeft2"> <a href="12619" class="fontLink1">手机软件 </a></span> <span
+                        class="spanStyleLeft2"><a href="12620" class="fontLink1">机械工程 </a></span> <span
+                        class="spanStyleLeft2"><a href="12621" class="fontLink1">电子电路 </a></span>
+                <p><span class="spanStyleLeft2"> <a href="12622" class="fontLink1">商业贸易 </a></span> <span
+                        class="spanStyleLeft2"><a href="12623" class="fontLink1">仓储租借 </a></span> <span
+                        class="spanStyleLeft2"><a href="12624" class="fontLink1">交通运输 </a></span>
+                <p><span class="spanStyleLeft2"> <a href="12625" class="fontLink1">法律法规</a></span> <span
+                        class="spanStyleLeft2"><a href="12626" class="fontLink1">审计评估 </a></span> <span
+                        class="spanStyleLeft2"><a href="12627" class="fontLink1">保险行业 </a></span>
+                <p><span class="spanStyleLeft2"> <a href="12628" class="fontLink1">行政管理 </a></span> <span
+                        class="spanStyleLeft2"><a href="12629" class="fontLink1">出版印刷</a></span> <span
+                        class="spanStyleLeft2"><a href="12630" class="fontLink1">工程建筑</a></span>
+                <p><span class="spanStyleLeft2"> <a href="12631" class="fontLink1">旅游餐饮</a></span> <span
+                        class="spanStyleLeft2"><a href="12632" class="fontLink1">美容美发</a></span> <span
+                        class="spanStyleLeft2"><a href="12633" class="fontLink1">纺织服装</a></span>
+                <p><span class="spanStyleLeft2"> <a href="12634" class="fontLink1">股票证券</a></span> <span
+                        class="spanStyleLeft2"><a href="12635" class="fontLink1">生物医药</a></span> <span
+                        class="spanStyleLeft2"><a href="12636" class="fontLink1">影视动画</a></span></p></div>
+        </div>
+        <div class="divBorder2 divRight" style="margin-top:0px;"><p><span class="spanStyle3"> <a
+                href="http://www.hang360.cn/11825" class="fontLink4">[市场营销]</a> </span> <span class="spanStyle4"><a
+                href="http://www.21cbh.com/" class="fontLink2">21世纪网</a></span> <span class="spanStyle4"><a
+                href="http://www.eeo.com.cn/" class="fontLink2">经济观察网</a></span> <span class="spanStyle4"><a
+                href="http://www.ftchinese.com/" class="fontLink2">FT中文网</a></span> <span class="spanStyle4"><a
+                href="http://cn.wsj.com/gb/" class="fontLink2">华尔街日报中文网</a></span> <span class="spanStyle4"><a
+                href="http://www.iceo.com.cn/" class="fontLink2">中国企业家网</a></span> <span class="spanStyle5"><a
+                href="http://www.hang360.cn/11825" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11824" class="fontLink4">[电子信息工程]</a> </span>
+                <span class="spanStyle4"><a href="http://www.ednchina.com/	" class="fontLink2">EDN电子技术设计</a></span>
+                <span class="spanStyle4"><a href="http://www.dzahz.net/Index.html	"
+                                            class="fontLink2">电子爱好者</a></span> <span class="spanStyle4"><a
+                        href="http://www.eetop.cn/	" class="fontLink2">中国电子顶级开发网</a></span> <span class="spanStyle4"><a
+                        href="http://www.eaw.com.cn/" class="fontLink2">中国电子设计应用网</a></span> <span class="spanStyle5"><a
+                        href="http://www.hang360.cn/11824" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11830" class="fontLink4">[计算机科学]</a> </span>
+                <span class="spanStyle4"><a href="http://www.dinkumware.com/" class="fontLink2">DINKUMWARE</a></span>
+                <span class="spanStyle4"><a href="http://stl.winterxy.com/" class="fontLink2">STL学习网站</a></span> <span
+                        class="spanStyle4"><a href="http://www.open-std.org/jtc1/sc22/wg21/" class="fontLink2">C++
+                    Standards Committee</a></span> <span class="spanStyle4"><a
+                        href="http://www.stlchina.org/twiki/bin/view.pl/Main/STLChina"
+                        class="fontLink2">STL中文站</a></span> <span class="spanStyle5"><a
+                        href="http://www.hang360.cn/11830" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11828" class="fontLink4">[金融学]</a> </span> <span
+                    class="spanStyle4"><a href="http://www.pbc.gov.cn/ " class="fontLink2">中国人民银行</a></span> <span
+                    class="spanStyle4"><a href="http://www.cbrc.gov.cn/index.html " class="fontLink2">中国银监会</a></span>
+                <span class="spanStyle4"><a href="http://www.safe.gov.cn" class="fontLink2">国家外汇管理局</a></span> <span
+                        class="spanStyle4"><a href="http://www.china-cba.net" class="fontLink2">中国银行业协会</a></span> <span
+                        class="spanStyle4"><a href="http://www.hkma.gov.hk/eng/" class="fontLink2">香港金融管理局</a></span>
+                <span class="spanStyle5"><a href="http://www.hang360.cn/11828" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11826" class="fontLink4">[医学]</a> </span> <span
+                    class="spanStyle4"><a href="http://www.pathology.cn/" class="fontLink2">中国病理学网</a></span> <span
+                    class="spanStyle4"><a href="http://www.poledu.cn/" class="fontLink2">病理在线</a></span> <span
+                    class="spanStyle4"><a href="http://www.ipathology.cn/" class="fontLink2">华夏病理学网</a></span> <span
+                    class="spanStyle4"><a href="http://bbs.dingw.com/" class="fontLink2">中华病理技术论坛</a></span> <span
+                    class="spanStyle4"><a href="http://www.chinagene.cn" class="fontLink2">中国遗传网</a></span> <span
+                    class="spanStyle5"><a href="http://www.hang360.cn/11826" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11827" class="fontLink4">[法学]</a> </span> <span
+                    class="spanStyle4"><a href="http://www.iolaw.org.cn/" class="fontLink2">中国法学网</a></span> <span
+                    class="spanStyle4"><a href="http://www.mylegist.com/" class="fontLink2">法律界</a></span> <span
+                    class="spanStyle4"><a href="http://www.fabao365.com/" class="fontLink2">法邦网</a></span> <span
+                    class="spanStyle4"><a href="http://www.law-lib.com/" class="fontLink2">法律图书馆</a></span> <span
+                    class="spanStyle4"><a href="http://www.dffyw.com/" class="fontLink2">东方法眼网</a></span> <span
+                    class="spanStyle4"><a href="http://www.1488.com/" class="fontLink2">中法网</a></span> <span
+                    class="spanStyle5"><a href="http://www.hang360.cn/11827" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/13160" class="fontLink4">[英语]</a> </span> <span
+                    class="spanStyle4"><a href="http://sl.iciba.com/forum.php" class="fontLink2">爱词霸沙龙</a></span> <span
+                    class="spanStyle4"><a href="http://bbs.kekenet.com/" class="fontLink2">可可英语论坛</a></span> <span
+                    class="spanStyle4"><a href="http://www.hjbbs.com/" class="fontLink2">沪江论坛</a></span> <span
+                    class="spanStyle4"><a href="http://bbs.koolearn.com/new_main.jspa" class="fontLink2">酷学社区</a></span>
+                <span class="spanStyle4"><a href="http://bbs.taisha.org/" class="fontLink2">太傻网论坛</a></span> <span
+                        class="spanStyle4"><a href="http://bbs.tianya.cn/list-english-1.shtml"
+                                              class="fontLink2">英语杂谈</a></span> <span class="spanStyle5"><a
+                        href="http://www.hang360.cn/13160" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11831" class="fontLink4">[艺术设计]</a> </span>
+                <span class="spanStyle4"><a href="http://www.hxsd.com/" class="fontLink2">火星时代网</a></span> <span
+                        class="spanStyle4"><a href="http://www.86cg.com/" class="fontLink2">CG橙子</a></span> <span
+                        class="spanStyle4"><a href="http://www.cg98.cn/" class="fontLink2">CG酒吧</a></span> <span
+                        class="spanStyle4"><a href="http://www.newcg.com/" class="fontLink2">CG杂志</a></span> <span
+                        class="spanStyle4"><a href="http://www.cgfinal.com/" class="fontLink2">中国CG王国</a></span> <span
+                        class="spanStyle4"><a href="http://www.cgchina.com/" class="fontLink2">数码中国</a></span> <span
+                        class="spanStyle5"><a href="http://www.hang360.cn/11831" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11832" class="fontLink4">[经济学]</a> </span> <span
+                    class="spanStyle4"><a href="http://www.cet.com.cn/" class="fontLink2">中国经济新闻网</a></span> <span
+                    class="spanStyle4"><a href="http://www.ce.cn/ " class="fontLink2">中国经济网</a></span> <span
+                    class="spanStyle4"><a href="http://www.cinic.org.cn/" class="fontLink2">中国产业经济信息网</a></span> <span
+                    class="spanStyle4"><a href="http://bbs.jjxj.org/" class="fontLink2">经济学家</a></span> <span
+                    class="spanStyle4"><a href="http://finance.sina.com.cn/chanjing/"
+                                          class="fontLink2">新浪财经频道</a></span> <span class="spanStyle5"><a
+                    href="http://www.hang360.cn/11832" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11833" class="fontLink4">[生物科学]</a> </span>
+                <span class="spanStyle4"><a href="http://www.bioon.com/" class="fontLink2">生物谷</a></span> <span
+                        class="spanStyle4"><a href="http://www.bioon.com.cn/" class="fontLink2">生物在线</a></span> <span
+                        class="spanStyle4"><a href="http://www.biovip.com/" class="fontLink2">生命经纬</a></span> <span
+                        class="spanStyle4"><a href="http://www.bbioo.com/ " class="fontLink2">生物秀</a></span> <span
+                        class="spanStyle4"><a href="http://www.ebiotrade.com/" class="fontLink2">生物通</a></span> <span
+                        class="spanStyle4"><a href="http://www.46me.com/" class="fontLink2">生命在线</a></span> <span
+                        class="spanStyle5"><a href="http://www.hang360.cn/11833" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11834" class="fontLink4">[广告学]</a> </span> <span
+                    class="spanStyle4"><a href="http://shijue.me/home" class="fontLink2">视觉中国</a></span> <span
+                    class="spanStyle4"><a href="http://pm.cndesign.com/" class="fontLink2">平面设计网</a></span> <span
+                    class="spanStyle4"><a href="http://www.52design.com/channel/plane_index.shtml" class="fontLink2">创意在线</a></span>
+                <span class="spanStyle4"><a href="http://www.sj33.cn/article/" class="fontLink2">设计之家</a></span> <span
+                        class="spanStyle4"><a href="http://www.wzsky.net/html/60/" class="fontLink2">设计前沿</a></span>
+                <span class="spanStyle5"><a href="http://www.hang360.cn/11834" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11835" class="fontLink4">[工商管理]</a> </span>
+                <span class="spanStyle4"><a href="http://www.icxo.com/" class="fontLink2">世界经理人</a></span> <span
+                        class="spanStyle4"><a href="http://www.sino-manager.com/" class="fontLink2">中国经理人网站</a></span>
+                <span class="spanStyle4"><a href="http://www.manaren.com/" class="fontLink2">管理人网</a></span> <span
+                        class="spanStyle4"><a href="http://www.cnceo.com/ " class="fontLink2">中国总经理网</a></span> <span
+                        class="spanStyle4"><a href="http://www.cec.globalsources.com/"
+                                              class="fontLink2">世界经理人网站</a></span> <span class="spanStyle5"><a
+                        href="http://www.hang360.cn/11835" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11836" class="fontLink4">[心理学]</a> </span> <span
+                    class="spanStyle4"><a href="http://www.psychologytoday.com/" class="fontLink2">今日心理</a></span> <span
+                    class="spanStyle4"><a href="http://www.psycofe.com/" class="fontLink2">心灵咖啡</a></span> <span
+                    class="spanStyle4"><a href="http://www.lansin.com/" class="fontLink2">蓝心网</a></span> <span
+                    class="spanStyle4"><a href="http://www.bamaol.com/" class="fontLink2">爸妈在线</a></span> <span
+                    class="spanStyle4"><a href="http://www.nlp.cn/" class="fontLink2">中国NLP学院</a></span> <span
+                    class="spanStyle5"><a href="http://www.hang360.cn/11836" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11837" class="fontLink4">[数学]</a> </span> <span
+                    class="spanStyle4"><a href="http://www.mathrs.net/" class="fontLink2">中国数学资源网</a></span> <span
+                    class="spanStyle4"><a href="http://www.madio.net/forum.php" class="fontLink2">Madio数学中国</a></span>
+                <span class="spanStyle4"><a href="http://www.mathchina.com/bbs/forum.php"
+                                            class="fontLink2">数学中国</a></span> <span class="spanStyle4"><a
+                        href="http://www.mathfan.com/" class="fontLink2">数学爱好者</a></span> <span class="spanStyle4"><a
+                        href="http://www.math.org.cn/" class="fontLink2">博士数学论坛</a></span> <span class="spanStyle5"><a
+                        href="http://www.hang360.cn/11837" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11838" class="fontLink4">[通信工程]</a> </span>
+                <span class="spanStyle4"><a href="http://www.c114.net/" class="fontLink2">中国通信网</a></span> <span
+                        class="spanStyle4"><a href="http://www.mscbsc.com/" class="fontLink2">移动通信网</a></span> <span
+                        class="spanStyle4"><a href="http://www.cnttr.com" class="fontLink2">中通网</a></span> <span
+                        class="spanStyle4"><a href="http://www.cctime.com/" class="fontLink2">飞象网</a></span> <span
+                        class="spanStyle4"><a href="http://www.cww.net.cn" class="fontLink2">通信世界</a></span> <span
+                        class="spanStyle4"><a href="http://www.ccidcom.com/" class="fontLink2">通信产业网 </a></span> <span
+                        class="spanStyle5"><a href="http://www.hang360.cn/11838" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11839" class="fontLink4">[物联网工程]</a> </span>
+                <span class="spanStyle4"><a href="http://bbs.iotfans.com/forum.php"
+                                            class="fontLink2">物联网爱好者论坛</a></span> <span class="spanStyle4"><a
+                        href="http://www.thingslink.com/bbs/forum.php" class="fontLink2">Thingslink物联网论坛</a></span>
+                <span class="spanStyle4"><a href="http://cnuiot.com/forum.php" class="fontLink2">物联网校企联盟论坛</a></span>
+                <span class="spanStyle4"><a href="http://s.iot-online.com/forum.php"
+                                            class="fontLink2">物联网工程师社区</a></span> <span class="spanStyle5"><a
+                        href="http://www.hang360.cn/11839" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11840" class="fontLink4">[化学]</a> </span> <span
+                    class="spanStyle4"><a href="http://www.cam1992.com/" class="fontLink2">中国分析计量网</a></span> <span
+                    class="spanStyle4"><a href="http://www.chemonline.net/" class="fontLink2">化学在线</a></span> <span
+                    class="spanStyle4"><a href="http://www.organicworldwide.net/" class="fontLink2">全球有机化学资源</a></span>
+                <span class="spanStyle4"><a href="http://www.chinachemist.net/" class="fontLink2">中国化学工作者园地</a></span>
+                <span class="spanStyle5"><a href="http://www.hang360.cn/11840" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11841" class="fontLink4">[农学]</a> </span> <span
+                    class="spanStyle4"><a href="http://www.zgny.com.cn/" class="fontLink2">中国农业网</a></span> <span
+                    class="spanStyle4"><a href="http://www.grain.gov.cn/Grain/Index.aspx " class="fontLink2">中国粮食信息网</a></span>
+                <span class="spanStyle4"><a href="http://www.zwkf.net/" class="fontLink2">中国农业硅谷网</a></span> <span
+                        class="spanStyle4"><a href="http://www.moa.gov.cn/" class="fontLink2">中国农业信息网</a></span> <span
+                        class="spanStyle4"><a href="http://www.cngrain.com/" class="fontLink2">中华粮网</a></span> <span
+                        class="spanStyle5"><a href="http://www.hang360.cn/11841" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11842" class="fontLink4">[会计学]</a> </span> <span
+                    class="spanStyle4"><a href="http://www.acc.cn/" class="fontLink2">会计师网</a></span> <span
+                    class="spanStyle4"><a href="http://www.esnai.com/ " class="fontLink2">中国会计视野</a></span> <span
+                    class="spanStyle4"><a href="http://www.canet.com.cn/" class="fontLink2">中国会计网</a></span> <span
+                    class="spanStyle4"><a href="http://www.e521.com/" class="fontLink2">中华财会网</a></span> <span
+                    class="spanStyle4"><a href="http://www.kuaijiren.com/" class="fontLink2">会计人</a></span> <span
+                    class="spanStyle4"><a href="http://www.ccpan.com/" class="fontLink2">中国会计师网 </a></span> <span
+                    class="spanStyle5"><a href="http://www.hang360.cn/11842" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/12042" class="fontLink4">[环境工程]</a> </span>
+                <span class="spanStyle4"><a href="http://www.eptec.cn/" class="fontLink2">中国环保技术在线</a></span> <span
+                        class="spanStyle4"><a href="http://www.chinahbw.com/" class="fontLink2">中华环保网</a></span> <span
+                        class="spanStyle4"><a href="http://www.chinaenvironment.com/" class="fontLink2">中国环保网</a></span>
+                <span class="spanStyle4"><a href="http://env.people.com.cn/GB/index.html" class="fontLink2">人民网环保频道</a></span>
+                <span class="spanStyle4"><a href="http://www.cenews.com.cn/" class="fontLink2">中国环境网</a></span> <span
+                        class="spanStyle5"><a href="http://www.hang360.cn/12042" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/12043" class="fontLink4">[表演]</a> </span> <span
+                    class="spanStyle4"><a href="http://www.show160.com/ " class="fontLink2">中华演出网</a></span> <span
+                    class="spanStyle4"><a href="http://www.mgc365.com/" class="fontLink2">梦工厂网</a></span> <span
+                    class="spanStyle4"><a href="http://www.yilu365.com/" class="fontLink2">艺路网</a></span> <span
+                    class="spanStyle4"><a href="http://www.moko.cc/" class="fontLink2">美空网</a></span> <span
+                    class="spanStyle4"><a href="http://biaoyan.yikao.cn/" class="fontLink2">表演艺考网</a></span> <span
+                    class="spanStyle4"><a href="http://www.ibiaoyan.com/" class="fontLink2">奥尔表演网</a></span> <span
+                    class="spanStyle5"><a href="http://www.hang360.cn/12043" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/13379" class="fontLink4">[材料学]</a> </span> <span
+                    class="spanStyle4"><a href="1221" class="fontLink2">123</a></span> <span class="spanStyle4"><a
+                    href="1221" class="fontLink2">123</a></span> <span class="spanStyle4"><a
+                    href="http://www.baisi.net/forum-290-1.html" class="fontLink2">百思-无机非金属</a></span> <span
+                    class="spanStyle4"><a href="http://www.cncad.net/forum-49-1.html" class="fontLink2">蓝天CAD论坛材料板块</a></span>
+                <span class="spanStyle4"><a href="http://www.3dportal.cn/discuz/forum.php?mod=forumdisplay&fid=199"
+                                            class="fontLink2">三维网非金属材料</a></span> <span class="spanStyle5"><a
+                        href="http://www.hang360.cn/13379" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/12045" class="fontLink4">[电子商务]</a> </span>
+                <span class="spanStyle4"><a href="http://www.tmall.com/" class="fontLink2">天猫</a></span> <span
+                        class="spanStyle4"><a href="http://www.360buy.com" class="fontLink2">京东商城</a></span> <span
+                        class="spanStyle4"><a href="http://www.dangdang.com/" class="fontLink2">当当网</a></span> <span
+                        class="spanStyle4"><a href="http://www.taobao.com" class="fontLink2">淘宝</a></span> <span
+                        class="spanStyle4"><a href="http://www.vancl.com/?source=23452012kz" class="fontLink2">凡客诚品</a></span>
+                <span class="spanStyle4"><a href="http://www.suning.com" class="fontLink2">苏宁易购</a></span> <span
+                        class="spanStyle5"><a href="http://www.hang360.cn/12045" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/11964" class="fontLink4">[机械设计制造]</a> </span>
+                <span class="spanStyle4"><a href="http://www.diyijixie.com/" class="fontLink2">第一机械网 </a></span> <span
+                        class="spanStyle4"><a href="http://www.jixiejia.com/" class="fontLink2">机械家</a></span> <span
+                        class="spanStyle4"><a href="http://www.mapeng.net" class="fontLink2">马棚机械网</a></span> <span
+                        class="spanStyle4"><a href="http://www.ibanjin.com/" class="fontLink2">钣金论坛</a></span> <span
+                        class="spanStyle4"><a href="http://bbs.jxhyw.cn/index.php" class="fontLink2">机械梦想社区</a></span>
+                <span class="spanStyle5"><a href="http://www.hang360.cn/11964" class="fontLink2">更多》</a></span></p>
+            <p><span class="spanStyle3"> <a href="http://www.hang360.cn/12044" class="fontLink4">[应用物理学]</a> </span>
+                <span class="spanStyle4"><a href="http://www.cnphys.com/portal.php" class="fontLink2">中文物理网</a></span>
+                <span class="spanStyle4"><a href="http://www.stars7.cn/" class="fontLink2">中国物理网 </a></span> <span
+                        class="spanStyle4"><a href="http://forum.chinavib.com/index.php"
+                                              class="fontLink2">中国振动联盟</a></span> <span class="spanStyle4"><a
+                        href="http://www.cpenet.org.cn/" class="fontLink2">中国物理教育网</a></span> <span
+                        class="spanStyle4"><a href="http://www.daxuewuli.net/" class="fontLink2">大学物理网</a></span> <span
+                        class="spanStyle5"><a href="http://www.hang360.cn/12044" class="fontLink2">更多》</a></span></p>
+        </div>
+    </div>
+    <div class="divBorder1" style="padding:10px 20px 10px 20px; width:948px; margin-top:8px;"><p><span
+            class="fontTittle1" style="font-size:12px;">常用软件</span> <span class="spanStyle1"><a
+            href="http://baoku.360.cn/soft/show/appid/10202" class="fontLink1">Everything 文件搜索工具</a></span> <span
+            class="spanStyle1"><a href="http://baoku.360.cn/soft/show/appid/101251" class="fontLink1">文件夹保护
+        3000</a></span> <span class="spanStyle1"><a href="http://baoku.360.cn/soft/show/appid/102247001"
+                                                    class="fontLink1">孟坤工具箱</a></span> <span class="spanStyle1"><a
+            href="http://baoku.360.cn/soft/show/appid/103340534" class="fontLink1">Ultrafast Fill The Disk</a></span>
+        <span class="spanStyle1"><a href="http://baoku.360.cn/soft/show/appid/102006090"
+                                    class="fontLink1">分区助手</a></span> <span class="spanStyle1"><a
+                href="http://baoku.360.cn/soft/show/appid/103" class="fontLink1">一键GHOST</a></span> <span
+                class="spanStyle1"><a href="http://baoku.360.cn/soft/show/appid/161" class="fontLink1">cpu-Z</a></span>
+        <span class="spanStyle1"><a href="http://baoku.360.cn/soft/show/appid/101316"
+                                    class="fontLink1">VirtualBox</a></span> <span class="spanStyle1"><a
+                href="http://www.ludashi.com/" class="fontLink1">鲁大师</a></span> <span class="spanStyle1"><a
+                href="http://www.duote.com/tech/360anquanweishi/" class="fontLink1">360安全卫士教程</a></span> <span
+                class="spanStyle1"><a href="http://www.duote.com/tech/baofengyingyin/"
+                                      class="fontLink1">暴风影音教程</a></span> <span class="spanStyle1"><a
+                href="http://www.duote.com/tech/xunlei/ " class="fontLink1">迅雷教程</a></span> <span class="spanStyle5"><a
+                href="#" class="fontLink2" style="font-size:12px;">更多》</a></span></p> </p> <p><span class="fontTittle1"
+                                                                                                    style="font-size:12px;">软件教程</span>
+        <span class="spanStyle1"><a href="http://www.duote.com/tech/ppt/" class="fontLink1">PPT教程专题</a></span> <span
+                class="spanStyle1"><a href="http://www.duote.com/tech/word/" class="fontLink1">Word教程专题</a></span> <span
+                class="spanStyle1"><a href="http://www.duote.com/tech/Word2010/" class="fontLink1">Word
+            2010教程</a></span> <span class="spanStyle1"><a href="http://www.duote.com/tech/excel/" class="fontLink1">Excel教程专题</a></span>
+        <span class="spanStyle1"><a href="http://www.duote.com/tech/wps/" class="fontLink1">WPS教程专题</a></span> <span
+                class="spanStyle1"><a href="http://www.duote.com/tech/Visio2003/" class="fontLink1">Visio
+            2003教程</a></span> <span class="spanStyle1"><a href="http://www.duote.com/tech/photoshop/" class="fontLink1">photoshop教程</a></span>
+        <span class="spanStyle1"><a href="http://www.duote.com/tech/coreldraw/" class="fontLink1">CorelDRAW教程</a></span>
+        <span class="spanStyle5"><a href="#" class="fontLink2" style="font-size:12px;">更多》</a></span></p> </p> <p><span
+            class="fontTittle1" style="font-size:12px;">文档模板</span> <span class="spanStyle1"><a
+            href="http://www.sxfy.org.cn/" class="fontLink1">范文写作</a></span> <span class="spanStyle1"><a
+            href="http://www.eduzhai.net/article/" class="fontLink1">中国教育文摘</a></span> <span class="spanStyle1"><a
+            href="http://www.studa.net/ " class="fontLink1">中国论文下载中心</a></span> <span class="spanStyle1"><a
+            href="http://www.5ucom.com/" class="fontLink1">无忧商务文档</a></span> <span class="spanStyle1"><a
+            href="http://www.diyifanwen.com/" class="fontLink1">第一范文网</a></span> <span class="spanStyle1"><a
+            href="http://www.paper.edu.cn/" class="fontLink1">中国科技论文在线</a></span> <span class="spanStyle1"><a
+            href="http://www.docin.com/" class="fontLink1">豆丁网</a></span> <span class="spanStyle1"><a
+            href="http://www.360doc.com/" class="fontLink1">360doc</a></span> <span class="spanStyle1"><a
+            href="http://www.lunwenwang.com/" class="fontLink1">论文网在线</a></span> <span class="spanStyle1"><a
+            href="http://www.stu51.com/" class="fontLink1">学生无忧网</a></span> <span class="spanStyle5"><a href="#"
+                                                                                                        class="fontLink2"
+                                                                                                        style="font-size:12px;">更多》</a></span>
+    </p> </p> <p><span class="fontTittle1" style="font-size:12px;">酷站推荐</span> <span class="spanStyle1"><a
+            href="http://hxyl.net/" class="fontLink1">河蟹娱乐</a></span> <span class="spanStyle1"><a
+            href="http://www.netnoease.com/" class="fontLink1">网不易</a></span> <span class="spanStyle1"><a
+            href="http://www.tahua.net/" class="fontLink1">踏花行</a></span> <span class="spanStyle1"><a
+            href="http://jandan.net/" class="fontLink1">煎蛋</a></span> <span class="spanStyle1"><a
+            href="http://www.leiphone.com/" class="fontLink1">雷锋网</a></span> <span class="spanStyle1"><a
+            href="http://www.yixieshi.com/" class="fontLink1">互联网的一些事</a></span> <span class="spanStyle1"><a
+            href="http://cn.engadget.com/" class="fontLink1">瘾科技</a></span> <span class="spanStyle1"><a
+            href="http://www.huxiu.com/" class="fontLink1">虎嗅网</a></span> <span class="spanStyle1"><a
+            href="http://shitu.baidu.com/" class="fontLink1">百度识图</a></span> <span class="spanStyle1"><a
+            href="http://www.quwan.com/" class="fontLink1">趣玩网</a></span> <span class="spanStyle1"><a
+            href="http://www.guokr.com/" class="fontLink1">果壳网</a></span> <span class="spanStyle1"><a
+            href="http://www.rouding.com/" class="fontLink1">肉丁网</a></span> <span class="spanStyle5"><a href="#"
+                                                                                                        class="fontLink2"
+                                                                                                        style="font-size:12px;">更多》</a></span>
+    </p> </p> </div>
+    <div style="width:948px; padding:20px 0px 20px 0px; text-align:center; float:left;"><a href="#" class="fontLink1">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a
+            href="#" class="fontLink1">收录申请</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" class="fontLink1">帮助中心</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a
+            href="#" class="fontLink1">设置主页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" class="fontLink1">广告联系</a><br/>
+        360hang.com&nbsp;&nbsp;行业分类导航第一品牌&nbsp;&nbsp;ICP证沪B2-2012004
+    </div>
+</div> <!-- JiaThis Button BEGIN -->
+<div class="jiathis_share_slide jiathis_share_24x24" id="jiathis_share_slide">
+    <div class="jiathis_share_slide_top" id="jiathis_share_title"></div>
+    <div class="jiathis_share_slide_inner">
+        <div class="jiathis_style_24x24"><a class="jiathis_button_qzone"></a> <a class="jiathis_button_tsina"></a> <a
+                href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+            <script type="text/javascript"> var jiathis_config = {slide: {divid: 'jiathis_main',//设定分享按钮的位置在哪个DIV的边缘，一般是主体内容的外层DIV框架ID, pos:'right' } }; </script>
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1396326791035253"
+                    charset="utf-8"></script>
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_slide.js" charset="utf-8"></script>
+        </div>
+    </div>
+</div> <!-- JiaThis Button END -->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1259649913'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259649913%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</body>
+</html>

