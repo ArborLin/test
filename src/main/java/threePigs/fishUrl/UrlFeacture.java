@@ -32,13 +32,12 @@ public class UrlFeacture {
 //        int minLength = getMinLength(url);//最小长度
 
 
-        int[] urlFeacture = {hasIp, pointNum, hasAt, maxLength};
+        int[] urlFeacture = {isPro, hasIp, pointNum, pathNum, pathKey, hasAt, maxLength};
         return urlFeacture;
     }
 
 
     /**
-     *
      * @param path
      * @return 判断路径级数
      */
@@ -72,8 +71,6 @@ public class UrlFeacture {
         int flag = 0;
         if (pro.equals("https")) {
             flag = 1;
-        } else {
-            flag = 0;
         }
         return flag;
     }
@@ -230,19 +227,19 @@ public class UrlFeacture {
 //        }
 //    }
 
-    public static void main(String[] args) throws Exception {
-        String url = "http://login.taobao.com/member/xclient.htm";
-        URL aUrl = new URL(url);
-        String protocol = aUrl.getProtocol();
-        String host = aUrl.getHost();
-        UrlFeacture urlFeacture = new UrlFeacture();
-        int ip = urlFeacture.getIp(host);
-
-        System.out.println("p: " + protocol);
-        System.out.println("host " + host);
-        System.out.println("ip: " + ip);
-        System.out.println("级数 " + urlFeacture.getIPseries(host));
-        System.out.println("at: " + urlFeacture.getAt(url));
-    }
+//    public static void main(String[] args) throws Exception {
+//        String url = "http://55fqwiofj.55ioajdoias.pw3";
+//        URL aUrl = new URL(url);
+//        String protocol = aUrl.getProtocol();
+//        String host = aUrl.getHost();
+//        UrlFeacture urlFeacture = new UrlFeacture();
+//        int ip = urlFeacture.getIp(host);
+//
+//        System.out.println("p: " + protocol);
+//        System.out.println("host " + host);
+//        System.out.println("ip: " + ip);
+//        System.out.println("级数 " + urlFeacture.getIPseries(host));
+//        System.out.println("at: " + urlFeacture.getAt(url));
+//    }
 
 }

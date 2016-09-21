@@ -4,8 +4,6 @@ package threePigs.fishUrl;
 /**
  * Created by zsc on 2016/9/14.
  */
-import org.apache.commons.httpclient.*;
-import org.apache.commons.httpclient.methods.*;
 
 import java.io.IOException;
 

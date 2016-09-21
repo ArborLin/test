@@ -2,6 +2,7 @@ package parser;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 /**
@@ -37,5 +38,9 @@ public class HtmlParser {
 
     public String getUrl() {
         return url;
+    }
+
+    public Elements getInput() {
+        return doc.select("input");
     }
 }
