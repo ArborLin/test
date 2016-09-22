@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>后台管理入口</title>
+    <link href="../ht_css/admin.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="../inc/fun.js"></script>
+    <style type="text/css"> <!--
+    body {
+        color: #111;
+        background: #C1EC98 url(../ht_images/login/bg.jpg) repeat-x;
+        text-align: center;
+    }
+
+    td {
+        color: #003300;
+    }
+
+    #panel {
+        margin: 22% auto 33px;
+        text-align: left;
+        clear: both;
+        border: 1px solid #91D077;
+        background: url(../ht_images/login/login_bg.jpg) repeat-x;
+    }
+
+    .login_ipt {
+        width: 98px;
+        height: 14px;
+        border: 1px solid #97d782;
+        background: #f5f5fa transparent;
+        color: #333;
+        border-top: 1px solid #4EA749;
+        border-left: 1px solid #4EA749;
+    }
+
+    .login_btn {
+        width: 50px;
+        height: 20px;
+        background: #B6E692 url(../ht_images/login/btn_bg.jpg) repeat-x;
+        color: #00651A;
+        cursor: pointer;
+        border: 1px solid #91D077;
+    }
+
+    #login_table {
+        white-space: nowrap;
+        margin: 12px 16px;
+        border: 1px solid #91D077;
+        padding: 12px 16px;
+    }
+
+    #login_table p {
+        margin: 0;
+        padding: 3px 0;
+    }
+
+    #copyright {
+        width: 666px;
+        color: #06370c;
+        clear: both;
+        margin: 0 auto;
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    --> </style>
+    <script type="text/javascript"> function check(obj) {
+        obj["admin"].value = trim(obj["admin"].value).replace(/\'/, "");
+        obj["pwd"].value = trim(obj["pwd"].value);
+        if (obj["admin"].value == "") {
+            alert("请输入用户名!");
+            obj["admin"].focus();
+            return false;
+        }
+        if (obj["pwd"].value == "") {
+            alert("请输入密码!");
+            obj["pwd"].focus();
+            return false;
+        }
+        if (obj["yzm"].value == "") {
+            alert("请输入验证码!");
+            obj["yzm"].focus();
+            return false;
+        }
+        obj.method = "post";
+        obj.action = "admin_login.asp";
+    } </script>
+</head>
+<body>
+<table border="0" cellspacing="0" cellpadding="0" align="center" id="panel">
+    <tbody>
+    <tr>
+        <td valign="top"><img src="../ht_images/login/icon.gif"
+                              style="position:absolute;margin:-5px 0 0 -163px; z-index:100;"/>
+            <div id="login_table">
+                <form name="form1" method="get" onsubmit="return check(this);"><p>管理员帐号：<input type="text"
+                                                                                               class="login_ipt"
+                                                                                               name="admin"/></p>
+                    <p>管理员密码：<input type="password" class="login_ipt" name="pwd"/></p>
+                    <p>验证码：<input type="text" class="login_ipt" name="yzm"/><img id="yanzhenma" src="yzm.asp"
+                                                                                 onclick="document.getElementById('yanzhenma').src='yzm.asp?pp='+ Math.random();"/>
+                    </p>
+                    <p style="text-align:center;"><input type="submit" name="submit" class="login_btn" value="登陆"/>&nbsp;&nbsp;<input
+                            type="reset" name="reset" class="login_btn" value="重填"/></p></form>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div id="copyright"> Copyright <span style="font-family:Arial, Helvetica, sans-serif;">&copy;</span> 2006-2007
+    宁波市鄞州佳梦服饰有限公司 All Rights Reserved.
+</div>
+</body>
+</html>

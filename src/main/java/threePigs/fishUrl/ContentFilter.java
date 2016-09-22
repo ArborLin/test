@@ -110,7 +110,7 @@ public class ContentFilter {
 
         System.out.println("size: " + links.size());
         for (Element link : links) {
-            String linkHref = link.attr("href");
+            String linkHref = link.attr("href").replace(" ","");
             System.out.println("linkHref: " + linkHref);
             if (linkHref.equals("") || linkHref.equals("?") || linkHref.equals("#")) {
                 count++;
@@ -293,7 +293,8 @@ public class ContentFilter {
         Elements forms = htmlParser.getForms();
         if (forms.size() > 0) {
             for (Element form : forms) {
-                String actionAttr = form.attr("action").toLowerCase();
+                String actionAttr = form.attr("action").replace(" ","").toLowerCase();
+                System.out.println("action  :  " + form.attr("action").equals(""));//action判断
                 if (actionAttr.equals("#") || actionAttr.equals("?") || actionAttr.equals("")) { //action域为空或为相对地址，且本页URL不为https
                     exist = 1;
                 } else if (actionAttr.contains("login") || actionAttr.contains("admin") || actionAttr.contains("search")) {
@@ -438,7 +439,7 @@ public class ContentFilter {
 //
 //
 //    public static void main(String args[]) throws Exception {
-//        File file = new File("src/main/java/isFish/www.iCloud.com.html");
+//        File file = new File("src/main/java/isFish/normalLogin5.html");
 //        InputStreamReader reader = null;
 //        StringWriter writer = new StringWriter();
 //        try {
@@ -471,6 +472,7 @@ public class ContentFilter {
 //            System.out.println("null: " + filter.getNullLinkCount());
 //            System.out.println("freq: " + filter.getFrequentHost());
 //            System.out.println("input: " + filter.getInputNum());
+//            System.out.println("a: " + filter.getIfBadActionExist());
 //        }
 //    }
 
